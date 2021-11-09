@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EST_window
 {
@@ -14,8 +15,8 @@ namespace EST_window
         {
             xs = 0;
             ys = 0;
-            width = 1920;
-            height = 1080;
+            width = Screen.PrimaryScreen.Bounds.Width;
+            height = Screen.PrimaryScreen.Bounds.Height;
         }
 
         public void setStartArea(int x, int y)
