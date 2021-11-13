@@ -36,12 +36,13 @@ namespace EST_window
             this.startTranslation = new System.Windows.Forms.Button();
             this.LTposLabel = new System.Windows.Forms.Label();
             this.RBposLabel = new System.Windows.Forms.Label();
+            this.Text = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // setAreaButton
             // 
-            this.setAreaButton.Location = new System.Drawing.Point(686, 328);
+            this.setAreaButton.Location = new System.Drawing.Point(713, 357);
             this.setAreaButton.Name = "setAreaButton";
             this.setAreaButton.Size = new System.Drawing.Size(75, 23);
             this.setAreaButton.TabIndex = 0;
@@ -66,7 +67,7 @@ namespace EST_window
             // 
             // startTranslation
             // 
-            this.startTranslation.Location = new System.Drawing.Point(686, 375);
+            this.startTranslation.Location = new System.Drawing.Point(713, 386);
             this.startTranslation.Name = "startTranslation";
             this.startTranslation.Size = new System.Drawing.Size(75, 23);
             this.startTranslation.TabIndex = 2;
@@ -92,18 +93,28 @@ namespace EST_window
             this.RBposLabel.TabIndex = 4;
             this.RBposLabel.Text = "label1";
             // 
+            // Text
+            // 
+            this.Text.Location = new System.Drawing.Point(713, 415);
+            this.Text.Name = "Text";
+            this.Text.Size = new System.Drawing.Size(75, 23);
+            this.Text.TabIndex = 5;
+            this.Text.Text = "Test";
+            this.Text.UseVisualStyleBackColor = true;
+            this.Text.Click += new System.EventHandler(this.Text_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Text);
             this.Controls.Add(this.RBposLabel);
             this.Controls.Add(this.LTposLabel);
             this.Controls.Add(this.startTranslation);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.setAreaButton);
             this.Name = "Form1";
-            this.Text = "[EST] English Slide Translation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,6 +129,7 @@ namespace EST_window
         private System.Windows.Forms.Button startTranslation;
         private System.Windows.Forms.Label LTposLabel;
         private System.Windows.Forms.Label RBposLabel;
+        private System.Windows.Forms.Button Text;
     }
 }
 

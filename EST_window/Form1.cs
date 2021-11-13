@@ -80,5 +80,10 @@ namespace EST_window
 
             }
         }
+
+        private void Text_Click(object sender, EventArgs e)
+        {
+            GCP_Vision.detect_dtext("sample.png");
+        }
     }
 }
