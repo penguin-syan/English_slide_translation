@@ -1,6 +1,6 @@
 # [EST] English Slide Translation
 Zoomなどを用いたオンラインの国際会議において，画面共有で表示されているスライドのキャプション・翻訳を行うソフト．  
-一部の処理に[Google Cloud Vision](https://cloud.google.com/vision/overview/docs?hl=ja)と[DeepL](https://www.deepl.com/)を用いています．
+一部の処理に[Google Cloud Vision](https://cloud.google.com/vision/)と[DeepL](https://www.deepl.com/)を用いています．
 
 ## 動作イメージ
 
