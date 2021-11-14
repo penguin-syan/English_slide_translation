@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -28,6 +29,7 @@ namespace EST_window
             InitializeComponent();
         }
 
+
         private void setAreaBusson_Click(object sender, EventArgs e)
         {
             LTposLabel.Text = string.Format("始点 [x, y]");
@@ -42,13 +44,18 @@ namespace EST_window
             setAreaTimer.Start();
         }
 
+
         private void startTranslation_Click(object sender, EventArgs e)
         {
             Rectangle rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
             Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
+
+            this.Visible = false;
+            Thread.Sleep(200);
             graphics.CopyFromScreen(new Point(rectangle.X, rectangle.Y), new Point(0, 0), bitmap.Size);
             graphics.Dispose();
+            this.Visible = true;
 
             pictureBox1.Image = bitmap;
 
@@ -60,6 +67,7 @@ namespace EST_window
             bitmap.Save(userDoc + "\\EST\\file.png");
             //GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png"); //デバッグ時に不要なリクエストを防ぐためにコメントアウトしてもよい
         }
+
 
         private void setAreaTimer_Tick(object sender, EventArgs e)
         {
