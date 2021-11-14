@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 namespace EST_window
 {
-    public partial class Form1 : Form
+    public partial class AppForm : Form
     {
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(System.Windows.Forms.Keys vkey);
@@ -22,7 +22,7 @@ namespace EST_window
         bool flgClick = false;
         int flgClickCount = 0;
 
-        public Form1()
+        public AppForm()
         {
             InitializeComponent();
         }
@@ -34,6 +34,8 @@ namespace EST_window
 
             setAreaButton.Text = "領域選択中";
             setAreaButton.Enabled = false;
+
+            this.WindowState = FormWindowState.Minimized;
 
             setAreaTimer.Start();
         }
@@ -85,14 +87,11 @@ namespace EST_window
                     flgClickCount = 0;
                     setAreaButton.Text = "領域選択";
                     setAreaButton.Enabled = true;
+
+                    this.WindowState = FormWindowState.Normal;
                 }
 
             }
-        }
-
-        private void Text_Click(object sender, EventArgs e)
-        {
-            GCP_Vision.detect_dtext("C:\\sample.png");
         }
     }
 }

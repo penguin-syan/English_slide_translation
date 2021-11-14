@@ -1,7 +1,7 @@
 ﻿
 namespace EST_window
 {
-    partial class Form1
+    partial class AppForm
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -36,7 +36,6 @@ namespace EST_window
             this.startTranslation = new System.Windows.Forms.Button();
             this.LTposLabel = new System.Windows.Forms.Label();
             this.RBposLabel = new System.Windows.Forms.Label();
-            this.Text = new System.Windows.Forms.Button();
             this.setting_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -94,16 +93,6 @@ namespace EST_window
             this.RBposLabel.TabIndex = 4;
             this.RBposLabel.Text = "label1";
             // 
-            // Text
-            // 
-            this.Text.Location = new System.Drawing.Point(697, 356);
-            this.Text.Name = "Text";
-            this.Text.Size = new System.Drawing.Size(75, 23);
-            this.Text.TabIndex = 5;
-            this.Text.Text = "Test";
-            this.Text.UseVisualStyleBackColor = true;
-            this.Text.Click += new System.EventHandler(this.Text_Click);
-            // 
             // setting_button
             // 
             this.setting_button.Location = new System.Drawing.Point(697, 386);
@@ -113,19 +102,18 @@ namespace EST_window
             this.setting_button.Text = "設定";
             this.setting_button.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.setting_button);
-            this.Controls.Add(this.Text);
             this.Controls.Add(this.RBposLabel);
             this.Controls.Add(this.LTposLabel);
             this.Controls.Add(this.startTranslation);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.setAreaButton);
-            this.Name = "Form1";
+            this.Name = "AppForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,7 +128,6 @@ namespace EST_window
         private System.Windows.Forms.Button startTranslation;
         private System.Windows.Forms.Label LTposLabel;
         private System.Windows.Forms.Label RBposLabel;
-        private System.Windows.Forms.Button Text;
         private System.Windows.Forms.Button setting_button;
     }
 }
