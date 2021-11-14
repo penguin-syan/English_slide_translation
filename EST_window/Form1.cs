@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,14 @@ namespace EST_window
             graphics.Dispose();
 
             pictureBox1.Image = bitmap;
+
+            string userDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            if (!System.IO.Directory.Exists(userDoc + "\\EST"))
+            {
+                Directory.CreateDirectory(userDoc + "\\EST");
+            }
+            bitmap.Save(userDoc + "\\EST\\file.png");
+            GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
         }
 
         private void setAreaTimer_Tick(object sender, EventArgs e)
@@ -83,7 +92,7 @@ namespace EST_window
 
         private void Text_Click(object sender, EventArgs e)
         {
-            GCP_Vision.detect_dtext("sample.png");
+            GCP_Vision.detect_dtext("C:\\sample.png");
         }
     }
 }

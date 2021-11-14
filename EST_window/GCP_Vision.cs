@@ -15,8 +15,7 @@ namespace EST_window
         {
             ImageAnnotatorClient ia_client = ImageAnnotatorClient.Create();
             ProductSearchClient ps_client = ProductSearchClient.Create();
-            //Image img = Image.FromFile(imageFilepass);
-            Image img = Image.FromFile("C:\\sample.png");
+            Image img = Image.FromFile(imageFilepass);
 
             TextAnnotation text = ia_client.DetectDocumentText(img);
 

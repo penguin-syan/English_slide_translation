@@ -37,12 +37,13 @@ namespace EST_window
             this.LTposLabel = new System.Windows.Forms.Label();
             this.RBposLabel = new System.Windows.Forms.Label();
             this.Text = new System.Windows.Forms.Button();
+            this.setting_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // setAreaButton
             // 
-            this.setAreaButton.Location = new System.Drawing.Point(713, 357);
+            this.setAreaButton.Location = new System.Drawing.Point(697, 298);
             this.setAreaButton.Name = "setAreaButton";
             this.setAreaButton.Size = new System.Drawing.Size(75, 23);
             this.setAreaButton.TabIndex = 0;
@@ -67,7 +68,7 @@ namespace EST_window
             // 
             // startTranslation
             // 
-            this.startTranslation.Location = new System.Drawing.Point(713, 386);
+            this.startTranslation.Location = new System.Drawing.Point(697, 327);
             this.startTranslation.Name = "startTranslation";
             this.startTranslation.Size = new System.Drawing.Size(75, 23);
             this.startTranslation.TabIndex = 2;
@@ -95,7 +96,7 @@ namespace EST_window
             // 
             // Text
             // 
-            this.Text.Location = new System.Drawing.Point(713, 415);
+            this.Text.Location = new System.Drawing.Point(697, 356);
             this.Text.Name = "Text";
             this.Text.Size = new System.Drawing.Size(75, 23);
             this.Text.TabIndex = 5;
@@ -103,11 +104,21 @@ namespace EST_window
             this.Text.UseVisualStyleBackColor = true;
             this.Text.Click += new System.EventHandler(this.Text_Click);
             // 
+            // setting_button
+            // 
+            this.setting_button.Location = new System.Drawing.Point(697, 386);
+            this.setting_button.Name = "setting_button";
+            this.setting_button.Size = new System.Drawing.Size(75, 23);
+            this.setting_button.TabIndex = 6;
+            this.setting_button.Text = "設定";
+            this.setting_button.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.setting_button);
             this.Controls.Add(this.Text);
             this.Controls.Add(this.RBposLabel);
             this.Controls.Add(this.LTposLabel);
@@ -130,6 +141,7 @@ namespace EST_window
         private System.Windows.Forms.Label LTposLabel;
         private System.Windows.Forms.Label RBposLabel;
         private System.Windows.Forms.Button Text;
+        private System.Windows.Forms.Button setting_button;
     }
 }
 
