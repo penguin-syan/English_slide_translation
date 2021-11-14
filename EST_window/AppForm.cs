@@ -18,6 +18,7 @@ namespace EST_window
         public static extern short GetAsyncKeyState(System.Windows.Forms.Keys vkey);
 
         CaptionArea capArea = new CaptionArea();
+        AreaSelectForm areaSelectForm = new AreaSelectForm();
 
         bool flgClick = false;
         int flgClickCount = 0;
@@ -35,6 +36,7 @@ namespace EST_window
             setAreaButton.Text = "領域選択中";
             setAreaButton.Enabled = false;
 
+            areaSelectForm.Show();
             this.WindowState = FormWindowState.Minimized;
 
             setAreaTimer.Start();
@@ -56,7 +58,7 @@ namespace EST_window
                 Directory.CreateDirectory(userDoc + "\\EST");
             }
             bitmap.Save(userDoc + "\\EST\\file.png");
-            GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
+            //GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png"); //デバッグ時に不要なリクエストを防ぐためにコメントアウトしてもよい
         }
 
         private void setAreaTimer_Tick(object sender, EventArgs e)
@@ -65,13 +67,11 @@ namespace EST_window
             {
                 if(flgClick == false)
                 {
-                    LTposLabel.Text = string.Format("始点 [{0:d}, {1:d}]", Cursor.Position.X, Cursor.Position.Y);
                     capArea.setStartArea(Cursor.Position.X, Cursor.Position.Y);
                     flgClick = true;
                 }
                 else
                 {
-                    RBposLabel.Text = string.Format("終点 [{0:d}, {1:d}]", Cursor.Position.X, Cursor.Position.Y);
                     capArea.setEndArea(Cursor.Position.X, Cursor.Position.Y);
                 }
 
@@ -88,6 +88,10 @@ namespace EST_window
                     setAreaButton.Text = "領域選択";
                     setAreaButton.Enabled = true;
 
+                    LTposLabel.Text = string.Format("始点 [{0:d}, {1:d}]", capArea.xs, capArea.ys);
+                    RBposLabel.Text = string.Format("終点 [{0:d}, {1:d}]", capArea.xs + capArea.width, capArea.ys + capArea.height);
+
+                    areaSelectForm.Hide();
                     this.WindowState = FormWindowState.Normal;
                 }
 
