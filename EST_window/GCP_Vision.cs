@@ -19,20 +19,23 @@ namespace EST_window
 
             TextAnnotation text = ia_client.DetectDocumentText(img);
 
-            Console.WriteLine($"Text: {text.Text}");
-            foreach(var page in text.Pages)
+            if (!(text == null))
             {
-                foreach(var block in page.Blocks)
+                Console.WriteLine($"Text: {text.Text}");
+                foreach(var page in text.Pages)
                 {
-                    string box = string.Join(" - ", block.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
-                    Console.WriteLine($"Block {block.BlockType} at {box}");
-                    foreach (var paragraph in block.Paragraphs)
+                    foreach(var block in page.Blocks)
                     {
-                        box = string.Join(" - ", paragraph.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
-                        Console.WriteLine($"  Paragraph at {box}");
-                        foreach (var word in paragraph.Words)
+                        string box = string.Join(" - ", block.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
+                        Console.WriteLine($"Block {block.BlockType} at {box}");
+                        foreach (var paragraph in block.Paragraphs)
                         {
-                            Console.WriteLine($"    Word: {string.Join("", word.Symbols.Select(s => s.Text))}");
+                            box = string.Join(" - ", paragraph.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
+                            Console.WriteLine($"  Paragraph at {box}");
+                            foreach (var word in paragraph.Words)
+                            {
+                                Console.WriteLine($"    Word: {string.Join("", word.Symbols.Select(s => s.Text))}");
+                            }
                         }
                     }
                 }
