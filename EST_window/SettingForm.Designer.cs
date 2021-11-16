@@ -142,7 +142,7 @@ namespace EST_window
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SettingForm";
-            this.Text = "SettingForm";
+            this.Text = "[EST] SettingForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

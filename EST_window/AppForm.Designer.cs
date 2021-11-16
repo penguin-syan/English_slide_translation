@@ -115,6 +115,7 @@ namespace EST_window
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.setAreaButton);
             this.Name = "AppForm";
+            this.Text = "[EST] English Slide Translation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
