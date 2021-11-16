@@ -32,10 +32,12 @@ namespace EST_window
                         {
                             box = string.Join(" - ", paragraph.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
                             Console.WriteLine($"  Paragraph at {box}");
+                            string str = "";
                             foreach (var word in paragraph.Words)
                             {
-                                Console.WriteLine($"    Word: {string.Join("", word.Symbols.Select(s => s.Text))}");
+                                str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
                             }
+                            Console.WriteLine(str);
                         }
                     }
                 }
