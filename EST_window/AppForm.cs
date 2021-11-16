@@ -105,5 +105,11 @@ namespace EST_window
 
             }
         }
+
+        private void setting_button_Click(object sender, EventArgs e)
+        {
+            SettingForm settingForm = new SettingForm();
+            settingForm.Show();
+        }
     }
 }

@@ -101,6 +101,7 @@ namespace EST_window
             this.setting_button.TabIndex = 6;
             this.setting_button.Text = "設定";
             this.setting_button.UseVisualStyleBackColor = true;
+            this.setting_button.Click += new System.EventHandler(this.setting_button_Click);
             // 
             // AppForm
             // 
