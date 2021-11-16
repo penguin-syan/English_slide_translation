@@ -32,10 +32,10 @@ namespace EST_window
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.close_button = new System.Windows.Forms.Button();
-            this.apiKey_textBox = new System.Windows.Forms.TextBox();
+            this.deeplKey_textBox = new System.Windows.Forms.TextBox();
             this.save_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.deepl_mode = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.GCkey_reference = new System.Windows.Forms.Button();
             this.GCkey_textBox = new System.Windows.Forms.TextBox();
@@ -67,13 +67,14 @@ namespace EST_window
             this.close_button.TabIndex = 2;
             this.close_button.Text = "閉じる";
             this.close_button.UseVisualStyleBackColor = true;
+            this.close_button.Click += new System.EventHandler(this.close_button_Click);
             // 
-            // apiKey_textBox
+            // deeplKey_textBox
             // 
-            this.apiKey_textBox.Location = new System.Drawing.Point(32, 71);
-            this.apiKey_textBox.Name = "apiKey_textBox";
-            this.apiKey_textBox.Size = new System.Drawing.Size(244, 19);
-            this.apiKey_textBox.TabIndex = 3;
+            this.deeplKey_textBox.Location = new System.Drawing.Point(32, 71);
+            this.deeplKey_textBox.Name = "deeplKey_textBox";
+            this.deeplKey_textBox.Size = new System.Drawing.Size(244, 19);
+            this.deeplKey_textBox.TabIndex = 3;
             // 
             // save_button
             // 
@@ -83,6 +84,7 @@ namespace EST_window
             this.save_button.TabIndex = 4;
             this.save_button.Text = "保存";
             this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
             // label3
             // 
@@ -93,16 +95,16 @@ namespace EST_window
             this.label3.TabIndex = 7;
             this.label3.Text = "DeepL API Key type";
             // 
-            // comboBox1
+            // deepl_mode
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.deepl_mode.FormattingEnabled = true;
+            this.deepl_mode.Items.AddRange(new object[] {
             "DeepL API Free",
             "DeepL API Pro"});
-            this.comboBox1.Location = new System.Drawing.Point(32, 120);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 8;
+            this.deepl_mode.Location = new System.Drawing.Point(32, 120);
+            this.deepl_mode.Name = "deepl_mode";
+            this.deepl_mode.Size = new System.Drawing.Size(121, 20);
+            this.deepl_mode.TabIndex = 8;
             // 
             // openFileDialog1
             // 
@@ -132,10 +134,10 @@ namespace EST_window
             this.ClientSize = new System.Drawing.Size(379, 153);
             this.Controls.Add(this.GCkey_textBox);
             this.Controls.Add(this.GCkey_reference);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.deepl_mode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.save_button);
-            this.Controls.Add(this.apiKey_textBox);
+            this.Controls.Add(this.deeplKey_textBox);
             this.Controls.Add(this.close_button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -151,10 +153,10 @@ namespace EST_window
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button close_button;
-        private System.Windows.Forms.TextBox apiKey_textBox;
+        private System.Windows.Forms.TextBox deeplKey_textBox;
         private System.Windows.Forms.Button save_button;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox deepl_mode;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button GCkey_reference;
         private System.Windows.Forms.TextBox GCkey_textBox;

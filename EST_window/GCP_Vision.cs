@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Windows.Forms;
 
 using Google.Cloud.Vision.V1;
 
@@ -13,8 +15,20 @@ namespace EST_window
     {
         public static void detect_dtext(string imageFilepass)
         {
-            ImageAnnotatorClient ia_client = ImageAnnotatorClient.Create();
-            ProductSearchClient ps_client = ProductSearchClient.Create();
+            ImageAnnotatorClientBuilder ia_client_builder = new ImageAnnotatorClientBuilder
+            {
+                CredentialsPath = ConfigurationManager.AppSettings["GC_key"]
+        };
+            ImageAnnotatorClient ia_client = null;
+            try
+            {
+                ia_client = ia_client_builder.Build();
+            }
+            catch (System.ArgumentException e)
+            {
+                MessageBox.Show("Google Cloudに接続するためのkeyファイルが設定されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Image img = Image.FromFile(imageFilepass);
 
             TextAnnotation text = ia_client.DetectDocumentText(img);
