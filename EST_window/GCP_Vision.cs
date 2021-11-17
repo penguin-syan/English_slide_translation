@@ -24,7 +24,7 @@ namespace EST_window
             {
                 ia_client = ia_client_builder.Build();
             }
-            catch (System.ArgumentException e)
+            catch (System.ArgumentException)
             {
                 MessageBox.Show("Google Cloudに接続するためのkeyファイルが設定されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
