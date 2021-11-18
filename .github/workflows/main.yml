@@ -1,0 +1,19 @@
+name: Mirror and run GitLab CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Mirror + trigger CI
+      uses: SvanBoxel/gitlab-mirror-and-ci-action@master
+      with:
+        args: "https://hss-gitlab.cs.t-kougei.ac.jp/mitsuta2020/english-slide-translation"
+      env:
+        GITLAB_HOSTNAME: "hss-gitlab.cs.t-kougei.ac.jp"
+        GITLAB_USERNAME: "mitsuta2020"
+        GITLAB_PASSWORD: ${{ secrets.GITLAB_PASSWORD }}
+        GITLAB_PROJECT_ID: "97"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
