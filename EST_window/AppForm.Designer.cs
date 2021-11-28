@@ -36,8 +36,18 @@ namespace EST_window
             this.startTranslation = new System.Windows.Forms.Button();
             this.LTposLabel = new System.Windows.Forms.Label();
             this.RBposLabel = new System.Windows.Forms.Label();
-            this.setting_button = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ファイルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.初期設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ヘルプToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ヘルプの表示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.更新の確認ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gitリポジトリToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // setAreaButton
@@ -53,9 +63,9 @@ namespace EST_window
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(649, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(649, 411);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -93,30 +103,104 @@ namespace EST_window
             this.RBposLabel.TabIndex = 4;
             this.RBposLabel.Text = "label1";
             // 
-            // setting_button
+            // menuStrip1
             // 
-            this.setting_button.Location = new System.Drawing.Point(697, 386);
-            this.setting_button.Name = "setting_button";
-            this.setting_button.Size = new System.Drawing.Size(75, 23);
-            this.setting_button.TabIndex = 6;
-            this.setting_button.Text = "設定";
-            this.setting_button.UseVisualStyleBackColor = true;
-            this.setting_button.Click += new System.EventHandler(this.setting_button_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ファイルToolStripMenuItem,
+            this.設定ToolStripMenuItem,
+            this.ヘルプToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // ファイルToolStripMenuItem
+            // 
+            this.ファイルToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.終了ToolStripMenuItem});
+            this.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
+            this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.ファイルToolStripMenuItem.Text = "ファイル(&F)";
+            // 
+            // 終了ToolStripMenuItem
+            // 
+            this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Text = "終了(&X)";
+            this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
+            // 
+            // 設定ToolStripMenuItem
+            // 
+            this.設定ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.初期設定ToolStripMenuItem});
+            this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
+            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.設定ToolStripMenuItem.Text = "設定(&S)";
+            // 
+            // 初期設定ToolStripMenuItem
+            // 
+            this.初期設定ToolStripMenuItem.Name = "初期設定ToolStripMenuItem";
+            this.初期設定ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.初期設定ToolStripMenuItem.Text = "環境設定(&O)";
+            this.初期設定ToolStripMenuItem.Click += new System.EventHandler(this.初期設定ToolStripMenuItem_Click);
+            // 
+            // ヘルプToolStripMenuItem
+            // 
+            this.ヘルプToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ヘルプの表示ToolStripMenuItem,
+            this.更新の確認ToolStripMenuItem,
+            this.gitリポジトリToolStripMenuItem,
+            this.バージョン情報ToolStripMenuItem});
+            this.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem";
+            this.ヘルプToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.ヘルプToolStripMenuItem.Text = "ヘルプ(&H)";
+            // 
+            // ヘルプの表示ToolStripMenuItem
+            // 
+            this.ヘルプの表示ToolStripMenuItem.Name = "ヘルプの表示ToolStripMenuItem";
+            this.ヘルプの表示ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.ヘルプの表示ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.ヘルプの表示ToolStripMenuItem.Text = "ヘルプの表示(&V)";
+            this.ヘルプの表示ToolStripMenuItem.Click += new System.EventHandler(this.ヘルプの表示ToolStripMenuItem_Click);
+            // 
+            // 更新の確認ToolStripMenuItem
+            // 
+            this.更新の確認ToolStripMenuItem.Enabled = false;
+            this.更新の確認ToolStripMenuItem.Name = "更新の確認ToolStripMenuItem";
+            this.更新の確認ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.更新の確認ToolStripMenuItem.Text = "更新の確認(&U)";
+            // 
+            // gitリポジトリToolStripMenuItem
+            // 
+            this.gitリポジトリToolStripMenuItem.Name = "gitリポジトリToolStripMenuItem";
+            this.gitリポジトリToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.gitリポジトリToolStripMenuItem.Text = "GitHubリポジトリ(&G)";
+            this.gitリポジトリToolStripMenuItem.Click += new System.EventHandler(this.gitリポジトリToolStripMenuItem_Click);
+            // 
+            // バージョン情報ToolStripMenuItem
+            // 
+            this.バージョン情報ToolStripMenuItem.Name = "バージョン情報ToolStripMenuItem";
+            this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.バージョン情報ToolStripMenuItem.Text = "バージョン情報(&A)";
+            this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.setting_button);
             this.Controls.Add(this.RBposLabel);
             this.Controls.Add(this.LTposLabel);
             this.Controls.Add(this.startTranslation);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.setAreaButton);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "AppForm";
             this.Text = "[EST] English Slide Translation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,7 +214,16 @@ namespace EST_window
         private System.Windows.Forms.Button startTranslation;
         private System.Windows.Forms.Label LTposLabel;
         private System.Windows.Forms.Label RBposLabel;
-        private System.Windows.Forms.Button setting_button;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ファイルToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ヘルプToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 設定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 初期設定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ヘルプの表示ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 更新の確認ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gitリポジトリToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem バージョン情報ToolStripMenuItem;
     }
 }
 

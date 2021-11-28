@@ -65,7 +65,7 @@ namespace EST_window
                 Directory.CreateDirectory(userDoc + "\\EST");
             }
             bitmap.Save(userDoc + "\\EST\\file.png");
-            GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png"); //デバッグ時に不要なリクエストを防ぐためにコメントアウトしてもよい
+            //GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png"); //デバッグ時に不要なリクエストを防ぐためにコメントアウトしてもよい
         }
 
 
@@ -106,10 +106,31 @@ namespace EST_window
             }
         }
 
-        private void setting_button_Click(object sender, EventArgs e)
+        private void 初期設定ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingForm settingForm = new SettingForm();
             settingForm.Show();
+        }
+
+        private void gitリポジトリToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/penguin-syan/English_slide_translation");
+        }
+
+        private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ヘルプの表示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/penguin-syan/English_slide_translation/wiki");
+        }
+
+        private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VersionForm versionForm = new VersionForm();
+            versionForm.Show();
         }
     }
 }
