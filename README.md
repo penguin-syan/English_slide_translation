@@ -39,6 +39,6 @@ Zoomなどを用いたオンラインの国際会議において，画面共有�
 * 開発中
 
 ## ライセンス
-* Copyright (c) 2021 penguin_syan  
+* Copyright (c) 2021 [penguin_syan](https://github.com/penguin-syan)  
 * Released under the MIT license.  
 see [https://opensource.org/licenses/MIT](https://en.wikipedia.org/wiki/MIT_License).
