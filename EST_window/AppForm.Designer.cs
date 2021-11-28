@@ -46,6 +46,8 @@ namespace EST_window
             this.更新の確認ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gitリポジトリToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.開くOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.保存SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -118,6 +120,8 @@ namespace EST_window
             // ファイルToolStripMenuItem
             // 
             this.ファイルToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.開くOToolStripMenuItem,
+            this.保存SToolStripMenuItem,
             this.終了ToolStripMenuItem});
             this.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem";
             this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
@@ -185,6 +189,20 @@ namespace EST_window
             this.バージョン情報ToolStripMenuItem.Text = "バージョン情報(&A)";
             this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
             // 
+            // 開くOToolStripMenuItem
+            // 
+            this.開くOToolStripMenuItem.Enabled = false;
+            this.開くOToolStripMenuItem.Name = "開くOToolStripMenuItem";
+            this.開くOToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.開くOToolStripMenuItem.Text = "開く(&O)";
+            // 
+            // 保存SToolStripMenuItem
+            // 
+            this.保存SToolStripMenuItem.Enabled = false;
+            this.保存SToolStripMenuItem.Name = "保存SToolStripMenuItem";
+            this.保存SToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存SToolStripMenuItem.Text = "保存(&S)";
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -224,6 +242,8 @@ namespace EST_window
         private System.Windows.Forms.ToolStripMenuItem 更新の確認ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gitリポジトリToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem バージョン情報ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 開くOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 保存SToolStripMenuItem;
     }
 }
 
