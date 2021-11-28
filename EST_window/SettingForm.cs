@@ -44,6 +44,8 @@ namespace EST_window
             config.AppSettings.Settings["DeepL_type"].Value = this.deepl_mode.Text;
             config.Save();
             this.Close();
+
+            ConfigurationManager.RefreshSection("appSettings");
         }
     }
 }
