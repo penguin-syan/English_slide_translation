@@ -38,6 +38,8 @@ namespace EST_window
             this.RBposLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.開くOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.保存SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.初期設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +48,6 @@ namespace EST_window
             this.更新の確認ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gitリポジトリToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.開くOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +127,20 @@ namespace EST_window
             this.ファイルToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.ファイルToolStripMenuItem.Text = "ファイル(&F)";
             // 
+            // 開くOToolStripMenuItem
+            // 
+            this.開くOToolStripMenuItem.Enabled = false;
+            this.開くOToolStripMenuItem.Name = "開くOToolStripMenuItem";
+            this.開くOToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.開くOToolStripMenuItem.Text = "開く(&O)";
+            // 
+            // 保存SToolStripMenuItem
+            // 
+            this.保存SToolStripMenuItem.Enabled = false;
+            this.保存SToolStripMenuItem.Name = "保存SToolStripMenuItem";
+            this.保存SToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存SToolStripMenuItem.Text = "保存(&S)";
+            // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
@@ -174,6 +188,7 @@ namespace EST_window
             this.更新の確認ToolStripMenuItem.Name = "更新の確認ToolStripMenuItem";
             this.更新の確認ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.更新の確認ToolStripMenuItem.Text = "更新の確認(&U)";
+            this.更新の確認ToolStripMenuItem.Click += new System.EventHandler(this.更新の確認ToolStripMenuItem_Click);
             // 
             // gitリポジトリToolStripMenuItem
             // 
@@ -188,20 +203,6 @@ namespace EST_window
             this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.バージョン情報ToolStripMenuItem.Text = "バージョン情報(&A)";
             this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
-            // 
-            // 開くOToolStripMenuItem
-            // 
-            this.開くOToolStripMenuItem.Enabled = false;
-            this.開くOToolStripMenuItem.Name = "開くOToolStripMenuItem";
-            this.開くOToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.開くOToolStripMenuItem.Text = "開く(&O)";
-            // 
-            // 保存SToolStripMenuItem
-            // 
-            this.保存SToolStripMenuItem.Enabled = false;
-            this.保存SToolStripMenuItem.Name = "保存SToolStripMenuItem";
-            this.保存SToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.保存SToolStripMenuItem.Text = "保存(&S)";
             // 
             // AppForm
             // 

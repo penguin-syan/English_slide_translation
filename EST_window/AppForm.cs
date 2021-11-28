@@ -124,13 +124,18 @@ namespace EST_window
 
         private void ヘルプの表示ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/penguin-syan/English_slide_translation/wiki");
+            System.Diagnostics.Process.Start("https://github.com/penguin-syan/English_slide_translation/blob/main/README.md");
         }
 
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VersionForm versionForm = new VersionForm();
             versionForm.Show();
+        }
+
+        private void 更新の確認ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //https://api.github.com/repos/penguin-syan/English_slide_translation/releases
         }
     }
 }
