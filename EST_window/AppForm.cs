@@ -155,7 +155,7 @@ namespace EST_window
             }
             else
             {
-                string text = "最新版のソフトが公開されています．\n最新版：" + versionInfo + "\n\n更新しますか？";
+                string text = "最新版のソフトが公開されています．\n最新版：" + versionInfo + "\n現行版：" + fileVersionInfo.FileVersion + "\n\n更新しますか？";
                 DialogResult d_result = MessageBox.Show(text, "更新バージョンがあります", MessageBoxButtons.YesNo);
                 if(d_result == DialogResult.Yes)
                 {
