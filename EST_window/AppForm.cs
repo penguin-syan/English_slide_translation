@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -155,7 +156,19 @@ namespace EST_window
             else
             {
                 string text = "最新版のソフトが公開されています．\n最新版：" + versionInfo + "\n\n更新しますか？";
-                MessageBox.Show(text, "更新バージョンがあります", MessageBoxButtons.YesNo);
+                DialogResult d_result = MessageBox.Show(text, "更新バージョンがあります", MessageBoxButtons.YesNo);
+                if(d_result == DialogResult.Yes)
+                {
+                    string downloadURL = (string)objFromJson["assets"][0]["browser_download_url"];
+                    string filepath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\EST\\" + (string)objFromJson["assets"][0]["name"];
+
+                    System.Net.WebClient webClient = new System.Net.WebClient();
+                    webClient.DownloadFile(downloadURL, @filepath);
+                    webClient.Dispose();
+
+                    Process.Start(filepath);
+                    this.Close();
+                }
             }
         }
     }
