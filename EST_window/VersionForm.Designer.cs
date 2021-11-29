@@ -97,6 +97,7 @@ namespace EST_window
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VersionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "バージョン情報";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -20,6 +20,11 @@ namespace EST_window
             this.GCkey_textBox.Text = ConfigurationManager.AppSettings["GC_key"];
             this.deeplKey_textBox.Text = ConfigurationManager.AppSettings["DeepL_key"];
             this.deepl_mode.Text = ConfigurationManager.AppSettings["DeepL_type"];
+            this.proxy_enabled.Checked = ConfigurationManager.AppSettings["proxy_enabled"].Equals("true");
+            this.proxy_url.Text = ConfigurationManager.AppSettings["proxy_url"];
+            this.proxy_url.Enabled = ConfigurationManager.AppSettings["proxy_enabled"].Equals("true");
+            this.proxy_port.Text = ConfigurationManager.AppSettings["proxy_port"];
+            this.proxy_port.Enabled = ConfigurationManager.AppSettings["proxy_enabled"].Equals("true");
         }
 
         private void GCkey_reference_Click(object sender, EventArgs e)
@@ -42,10 +47,19 @@ namespace EST_window
             config.AppSettings.Settings["GC_key"].Value = this.GCkey_textBox.Text;
             config.AppSettings.Settings["DeepL_key"].Value = this.deeplKey_textBox.Text;
             config.AppSettings.Settings["DeepL_type"].Value = this.deepl_mode.Text;
+            config.AppSettings.Settings["proxy_enabled"].Value = this.proxy_enabled.Checked ? "true": "false";
+            config.AppSettings.Settings["proxy_url"].Value = this.proxy_url.Text;
+            config.AppSettings.Settings["proxy_port"].Value = this.proxy_port.Text;
             config.Save();
             this.Close();
 
             ConfigurationManager.RefreshSection("appSettings");
+        }
+
+        private void proxy_enabled_CheckedChanged(object sender, EventArgs e)
+        {
+            proxy_url.Enabled = proxy_enabled.Checked;
+            proxy_port.Enabled = proxy_enabled.Checked;
         }
     }
 }
