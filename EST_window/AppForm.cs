@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace EST_window
 {
@@ -135,7 +138,25 @@ namespace EST_window
 
         private void 更新の確認ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //https://api.github.com/repos/penguin-syan/English_slide_translation/releases
+            string url = "https://api.github.com/repos/penguin-syan/English_slide_translation/releases/latest";
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
+            webRequest.UserAgent = "EST";
+            Stream stream = webRequest.GetResponse().GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+
+            var objFromJson = JObject.Parse(streamReader.ReadToEnd());
+            string versionInfo = (string)objFromJson["tag_name"];
+
+            System.Diagnostics.FileVersionInfo fileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            if (fileVersionInfo.FileVersion == versionInfo)
+            {
+                MessageBox.Show("実行中のソフトは最新版です．", "最新版", MessageBoxButtons.OK);
+            }
+            else
+            {
+                string text = "最新版のソフトが公開されています．\n最新版：" + versionInfo + "\n\n更新しますか？";
+                MessageBox.Show(text, "更新バージョンがあります", MessageBoxButtons.YesNo);
+            }
         }
     }
 }
