@@ -205,8 +205,8 @@ namespace EST_window
             // 
             // AppForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.RBposLabel);
             this.Controls.Add(this.LTposLabel);
@@ -232,7 +232,6 @@ namespace EST_window
         private System.Windows.Forms.Button startTranslation;
         private System.Windows.Forms.Label LTposLabel;
         private System.Windows.Forms.Label RBposLabel;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ファイルToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ヘルプToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
@@ -244,6 +243,7 @@ namespace EST_window
         private System.Windows.Forms.ToolStripMenuItem バージョン情報ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 開くOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存SToolStripMenuItem;
+        internal System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 

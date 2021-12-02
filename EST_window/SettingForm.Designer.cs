@@ -42,11 +42,11 @@ namespace EST_window
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.proxy_enabled = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.proxy_url = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.proxy_port = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.proxy_url = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.proxy_enabled = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -180,6 +180,38 @@ namespace EST_window
             this.tabPage2.Text = "ネットワーク設定";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // proxy_port
+            // 
+            this.proxy_port.Location = new System.Drawing.Point(9, 99);
+            this.proxy_port.Name = "proxy_port";
+            this.proxy_port.Size = new System.Drawing.Size(100, 19);
+            this.proxy_port.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 12);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "ポート番号";
+            // 
+            // proxy_url
+            // 
+            this.proxy_url.Location = new System.Drawing.Point(9, 57);
+            this.proxy_url.Name = "proxy_url";
+            this.proxy_url.Size = new System.Drawing.Size(309, 19);
+            this.proxy_url.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "プロキシサーバURL";
+            // 
             // proxy_enabled
             // 
             this.proxy_enabled.AutoSize = true;
@@ -192,42 +224,10 @@ namespace EST_window
             this.proxy_enabled.UseVisualStyleBackColor = true;
             this.proxy_enabled.CheckedChanged += new System.EventHandler(this.proxy_enabled_CheckedChanged);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 41);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 12);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "プロキシサーバURL";
-            // 
-            // proxy_url
-            // 
-            this.proxy_url.Location = new System.Drawing.Point(9, 57);
-            this.proxy_url.Name = "proxy_url";
-            this.proxy_url.Size = new System.Drawing.Size(309, 19);
-            this.proxy_url.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 12);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "ポート番号";
-            // 
-            // proxy_port
-            // 
-            this.proxy_port.Location = new System.Drawing.Point(9, 99);
-            this.proxy_port.Name = "proxy_port";
-            this.proxy_port.Size = new System.Drawing.Size(100, 19);
-            this.proxy_port.TabIndex = 4;
-            // 
             // SettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(421, 226);
             this.Controls.Add(this.close_button);
             this.Controls.Add(this.tabControl1);

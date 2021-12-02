@@ -31,12 +31,11 @@ namespace EST_window
         string userDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         bool flgClick = false;
         int flgClickCount = 0;
-        static int height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
-        static int width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+        static int height = Screen.PrimaryScreen.Bounds.Height;
+        static int width = Screen.PrimaryScreen.Bounds.Width;
 
         public AppForm()
         {
-            SetProcessDPIAware();
             InitializeComponent();
 
             LTposLabel.Text = "width : " + width;
