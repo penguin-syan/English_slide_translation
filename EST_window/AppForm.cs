@@ -83,11 +83,14 @@ namespace EST_window
         }
 
 
+        Bitmap canvas = new Bitmap(width, height);
+        Graphics graphic;
+        Pen p = new Pen(Color.Yellow, 3);
+
         private void setAreaTimer_Tick(object sender, EventArgs e)
         {
-            Bitmap canvas = new Bitmap(width, height);
-            Graphics graphic = Graphics.FromImage(canvas);
-            Pen p = new Pen(Color.Yellow, 3);
+            graphic = Graphics.FromImage(canvas);
+            graphic.Clear(Color.LawnGreen);
 
             if (GetAsyncKeyState(Keys.LButton) != 0)
             {
@@ -100,8 +103,6 @@ namespace EST_window
                 {
                     capArea.setEndArea(Cursor.Position.X, Cursor.Position.Y);
                     graphic.DrawRectangle(p, capArea.xs, capArea.ys, capArea.width, capArea.height);
-                    p.Dispose();
-                    graphic.Dispose();
 
                     areaSelectForm.selectArea_pBox.Image = canvas;
                 }
@@ -113,20 +114,26 @@ namespace EST_window
                 flgClick = false;
                 if(flgClickCount > 1)
                 {
-                    setAreaTimer.Stop();
-
-                    flgClickCount = 0;
-                    setAreaButton.Text = "領域選択";
-                    setAreaButton.Enabled = true;
-
-                    LTposLabel.Text = string.Format("始点 [{0:d}, {1:d}]", capArea.xs, capArea.ys);
-                    RBposLabel.Text = string.Format("終点 [{0:d}, {1:d}]", capArea.xs + capArea.width, capArea.ys + capArea.height);
-
-                    areaSelectForm.Hide();
-                    this.WindowState = FormWindowState.Normal;
+                    stopCaptionTimer();
                 }
 
             }
+        }
+
+        public void stopCaptionTimer()
+        {
+            flgClick = false;
+            setAreaTimer.Stop();
+
+            flgClickCount = 0;
+            setAreaButton.Text = "領域選択";
+            setAreaButton.Enabled = true;
+
+            LTposLabel.Text = string.Format("始点 [{0:d}, {1:d}]", capArea.xs, capArea.ys);
+            RBposLabel.Text = string.Format("終点 [{0:d}, {1:d}]", capArea.xs + capArea.width, capArea.ys + capArea.height);
+
+            areaSelectForm.Hide();
+            this.WindowState = FormWindowState.Normal;
         }
 
         private void 初期設定ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,7 +154,7 @@ namespace EST_window
 
         private void ヘルプの表示ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/penguin-syan/English_slide_translation/blob/main/README.md");
+            System.Diagnostics.Process.Start("https://github.com/penguin-syan/English_slide_translation/wiki");
         }
 
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e)

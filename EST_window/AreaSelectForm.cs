@@ -16,5 +16,13 @@ namespace EST_window
         {
             InitializeComponent();
         }
+
+        private void AreaSelectForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Escape)
+            {
+                Program.appForm.stopCaptionTimer();
+            }
+        }
     }
 }

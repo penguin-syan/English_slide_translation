@@ -48,13 +48,14 @@ namespace EST_window
             this.更新の確認ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gitリポジトリToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveTranslation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // setAreaButton
             // 
-            this.setAreaButton.Location = new System.Drawing.Point(697, 298);
+            this.setAreaButton.Location = new System.Drawing.Point(696, 336);
             this.setAreaButton.Name = "setAreaButton";
             this.setAreaButton.Size = new System.Drawing.Size(75, 23);
             this.setAreaButton.TabIndex = 0;
@@ -79,7 +80,7 @@ namespace EST_window
             // 
             // startTranslation
             // 
-            this.startTranslation.Location = new System.Drawing.Point(697, 327);
+            this.startTranslation.Location = new System.Drawing.Point(696, 365);
             this.startTranslation.Name = "startTranslation";
             this.startTranslation.Size = new System.Drawing.Size(75, 23);
             this.startTranslation.TabIndex = 2;
@@ -99,7 +100,7 @@ namespace EST_window
             // RBposLabel
             // 
             this.RBposLabel.AutoSize = true;
-            this.RBposLabel.Location = new System.Drawing.Point(669, 50);
+            this.RBposLabel.Location = new System.Drawing.Point(668, 46);
             this.RBposLabel.Name = "RBposLabel";
             this.RBposLabel.Size = new System.Drawing.Size(35, 12);
             this.RBposLabel.TabIndex = 4;
@@ -131,20 +132,20 @@ namespace EST_window
             // 
             this.開くOToolStripMenuItem.Enabled = false;
             this.開くOToolStripMenuItem.Name = "開くOToolStripMenuItem";
-            this.開くOToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.開くOToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.開くOToolStripMenuItem.Text = "開く(&O)";
             // 
             // 保存SToolStripMenuItem
             // 
             this.保存SToolStripMenuItem.Enabled = false;
             this.保存SToolStripMenuItem.Name = "保存SToolStripMenuItem";
-            this.保存SToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.保存SToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.保存SToolStripMenuItem.Text = "保存(&S)";
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.終了ToolStripMenuItem.Text = "終了(&X)";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
@@ -159,7 +160,7 @@ namespace EST_window
             // 初期設定ToolStripMenuItem
             // 
             this.初期設定ToolStripMenuItem.Name = "初期設定ToolStripMenuItem";
-            this.初期設定ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.初期設定ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.初期設定ToolStripMenuItem.Text = "環境設定(&O)";
             this.初期設定ToolStripMenuItem.Click += new System.EventHandler(this.初期設定ToolStripMenuItem_Click);
             // 
@@ -203,11 +204,22 @@ namespace EST_window
             this.バージョン情報ToolStripMenuItem.Text = "バージョン情報(&A)";
             this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
             // 
+            // saveTranslation
+            // 
+            this.saveTranslation.Enabled = false;
+            this.saveTranslation.Location = new System.Drawing.Point(696, 395);
+            this.saveTranslation.Name = "saveTranslation";
+            this.saveTranslation.Size = new System.Drawing.Size(75, 23);
+            this.saveTranslation.TabIndex = 8;
+            this.saveTranslation.Text = "保存";
+            this.saveTranslation.UseVisualStyleBackColor = true;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.saveTranslation);
             this.Controls.Add(this.RBposLabel);
             this.Controls.Add(this.LTposLabel);
             this.Controls.Add(this.startTranslation);
@@ -244,6 +256,7 @@ namespace EST_window
         private System.Windows.Forms.ToolStripMenuItem 開くOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存SToolStripMenuItem;
         internal System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button saveTranslation;
     }
 }
 

@@ -16,6 +16,7 @@ namespace EST_window
 
         [DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
+        public static AppForm appForm;
 
         [STAThread]
         static void Main()
@@ -24,7 +25,7 @@ namespace EST_window
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            AppForm appForm = new AppForm();
+            appForm = new AppForm();
             Application.Run(appForm);
         }
     }
