@@ -22,15 +22,25 @@ namespace EST_window
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(System.Windows.Forms.Keys vkey);
 
+        [DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
+
         CaptionArea capArea = new CaptionArea();
         AreaSelectForm areaSelectForm = new AreaSelectForm();
 
+        string userDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         bool flgClick = false;
         int flgClickCount = 0;
+        static int height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+        static int width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
 
         public AppForm()
         {
+            SetProcessDPIAware();
             InitializeComponent();
+
+            LTposLabel.Text = "width : " + width;
+            RBposLabel.Text = "height: " + height;
         }
 
 
@@ -42,6 +52,8 @@ namespace EST_window
             setAreaButton.Text = "領域選択中";
             setAreaButton.Enabled = false;
 
+            areaSelectForm.selectArea_pBox.Size = new Size(width, height);
+            areaSelectForm.selectArea_pBox.Image = null;
             areaSelectForm.Show();
             this.WindowState = FormWindowState.Minimized;
 
@@ -63,7 +75,6 @@ namespace EST_window
 
             pictureBox1.Image = bitmap;
 
-            string userDoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (!System.IO.Directory.Exists(userDoc + "\\EST"))
             {
                 Directory.CreateDirectory(userDoc + "\\EST");
@@ -75,9 +86,13 @@ namespace EST_window
 
         private void setAreaTimer_Tick(object sender, EventArgs e)
         {
-            if(GetAsyncKeyState(Keys.LButton) != 0)
+            Bitmap canvas = new Bitmap(width, height);
+            Graphics graphic = Graphics.FromImage(canvas);
+            Pen p = new Pen(Color.Yellow, 3);
+
+            if (GetAsyncKeyState(Keys.LButton) != 0)
             {
-                if(flgClick == false)
+                if(!flgClick)
                 {
                     capArea.setStartArea(Cursor.Position.X, Cursor.Position.Y);
                     flgClick = true;
@@ -85,6 +100,11 @@ namespace EST_window
                 else
                 {
                     capArea.setEndArea(Cursor.Position.X, Cursor.Position.Y);
+                    graphic.DrawRectangle(p, capArea.xs, capArea.ys, capArea.width, capArea.height);
+                    p.Dispose();
+                    graphic.Dispose();
+
+                    areaSelectForm.selectArea_pBox.Image = canvas;
                 }
 
                 flgClickCount++;
@@ -161,6 +181,11 @@ namespace EST_window
                 {
                     string downloadURL = (string)objFromJson["assets"][0]["browser_download_url"];
                     string filepath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\EST\\" + (string)objFromJson["assets"][0]["name"];
+
+                    if (!System.IO.Directory.Exists(userDoc + "\\EST"))
+                    {
+                        Directory.CreateDirectory(userDoc + "\\EST");
+                    }
 
                     System.Net.WebClient webClient = new System.Net.WebClient();
                     webClient.DownloadFile(downloadURL, @filepath);

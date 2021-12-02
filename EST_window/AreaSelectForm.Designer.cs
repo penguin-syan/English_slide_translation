@@ -29,22 +29,38 @@ namespace EST_window
         /// </summary>
         private void InitializeComponent()
         {
+            this.selectArea_pBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.selectArea_pBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // selectArea_pBox
+            // 
+            this.selectArea_pBox.BackColor = System.Drawing.Color.Transparent;
+            this.selectArea_pBox.Location = new System.Drawing.Point(0, 0);
+            this.selectArea_pBox.Margin = new System.Windows.Forms.Padding(0);
+            this.selectArea_pBox.Name = "selectArea_pBox";
+            this.selectArea_pBox.Size = new System.Drawing.Size(782, 432);
+            this.selectArea_pBox.TabIndex = 0;
+            this.selectArea_pBox.TabStop = false;
             // 
             // AreaSelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.LawnGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.selectArea_pBox);
             this.Name = "AreaSelectForm";
-            this.Opacity = 0.01D;
+            this.TransparencyKey = System.Drawing.Color.LawnGreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.selectArea_pBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        public System.Windows.Forms.PictureBox selectArea_pBox;
     }
 }
