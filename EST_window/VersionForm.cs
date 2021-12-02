@@ -22,6 +22,7 @@ namespace EST_window
 
         private void vframe_close_Click(object sender, EventArgs e)
         {
+            Program.appForm.Enabled = true;
             this.Close();
         }
 

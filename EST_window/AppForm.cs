@@ -138,6 +138,7 @@ namespace EST_window
 
         private void 初期設定ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Enabled = false;
             SettingForm settingForm = new SettingForm();
             settingForm.Show();
         }
@@ -160,6 +161,7 @@ namespace EST_window
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VersionForm versionForm = new VersionForm();
+            this.Enabled = false;
             versionForm.Show();
         }
 

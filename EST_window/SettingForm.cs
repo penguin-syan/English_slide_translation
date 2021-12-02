@@ -38,6 +38,7 @@ namespace EST_window
 
         private void close_button_Click(object sender, EventArgs e)
         {
+            Program.appForm.Enabled = true;
             this.Close();
         }
 
@@ -51,6 +52,7 @@ namespace EST_window
             config.AppSettings.Settings["proxy_url"].Value = this.proxy_url.Text;
             config.AppSettings.Settings["proxy_port"].Value = this.proxy_port.Text;
             config.Save();
+            Program.appForm.Enabled = true;
             this.Close();
 
             ConfigurationManager.RefreshSection("appSettings");
