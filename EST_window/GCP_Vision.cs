@@ -35,12 +35,18 @@ namespace EST_window
 
             if (!(text == null))
             {
-                Console.WriteLine($"Text: {text.Text}");
+                //Console.WriteLine($"Text: {text.Text}");
                 foreach(var page in text.Pages)
                 {
+                    Console.WriteLine(page.Blocks.LongCount());
                     foreach(var block in page.Blocks)
                     {
-                        //string box = string.Join(" - ", block.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
+                        string box = string.Join(" - ", block.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
+                        foreach(var v in block.BoundingBox.Vertices)
+                        {
+                            //Console.WriteLine(v.X + " - " + v.Y);
+                        }
+                            
                         //Console.WriteLine($"Block {block.BlockType} at {box}");
                         foreach (var paragraph in block.Paragraphs)
                         {
@@ -51,11 +57,21 @@ namespace EST_window
                             {
                                 str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
                             }
-                            Console.WriteLine(str);
+                            //Console.WriteLine(str);
                         }
                     }
                 }
             }
         }
     }
+
+    //class Blocks{
+    //    int x, y, width, height;
+    //    string text;
+
+    //    public void setBlocks(Page page)
+    //    {
+
+    //    }
+    //}
 }
