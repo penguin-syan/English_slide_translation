@@ -35,43 +35,73 @@ namespace EST_window
 
             if (!(text == null))
             {
-                //Console.WriteLine($"Text: {text.Text}");
-                foreach(var page in text.Pages)
+                var page = text.Pages[0];
+                TextBlocks[] textBlocks = new TextBlocks[page.Blocks.LongCount()];
+                for(int i = 0; i < page.Blocks.LongCount(); i++)
+                    textBlocks[i] = new TextBlocks();
+
+                for(int i = 0; i < page.Blocks.LongCount(); i++)
                 {
-                    Console.WriteLine(page.Blocks.LongCount());
-                    foreach(var block in page.Blocks)
+                    var block = page.Blocks[i];
+
+                    textBlocks[i].setBlockLocation(
+                        block.BoundingBox.Vertices[0].X,
+                        block.BoundingBox.Vertices[0].Y,
+                        block.BoundingBox.Vertices[2].X,
+                        block.BoundingBox.Vertices[2].Y);
+
+                    foreach (var paragraph in block.Paragraphs)
                     {
-                        string box = string.Join(" - ", block.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
-                        foreach(var v in block.BoundingBox.Vertices)
+                        string str = "";
+                        foreach (var word in paragraph.Words)
                         {
-                            //Console.WriteLine(v.X + " - " + v.Y);
+                            str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
                         }
-                            
-                        //Console.WriteLine($"Block {block.BlockType} at {box}");
-                        foreach (var paragraph in block.Paragraphs)
-                        {
-                            //box = string.Join(" - ", paragraph.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
-                            //Console.WriteLine($"  Paragraph at {box}");
-                            string str = "";
-                            foreach (var word in paragraph.Words)
-                            {
-                                str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
-                            }
-                            //Console.WriteLine(str);
-                        }
+                        textBlocks[i].setBlockText(str);
                     }
                 }
+
+                foreach(var tblock in textBlocks)
+                {
+                    Console.Write(tblock.getBlockLocation() + " ");
+                    Console.WriteLine(tblock.getBlockText());
+                }
+            }
+            else
+            {
+                MessageBox.Show("文字列が検出されませんでした","エラー" ,MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
 
-    //class Blocks{
-    //    int x, y, width, height;
-    //    string text;
 
-    //    public void setBlocks(Page page)
-    //    {
+    class TextBlocks{
+        int x, y, width, height;
+        string text;
 
-    //    }
-    //}
+        public void setBlockLocation(int x0, int y0, int x1, int y1)
+        {
+            this.x = x0;
+            this.y = y0;
+            this.width = x1 - x0;
+            this.height = y1 - y0;
+
+            Console.WriteLine($"{x0}, {y1}, {x1}, {y1}");
+        }
+
+        public void setBlockText(string text)
+        {
+            this.text = text;
+        }
+
+        public string getBlockText()
+        {
+            return this.text;
+        }
+        
+        public string getBlockLocation()
+        {
+            return $"({this.x}, {this.y}, {this.width}, {this.height})";
+        }
+    }
 }
