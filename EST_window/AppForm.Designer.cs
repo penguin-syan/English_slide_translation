@@ -50,7 +50,7 @@ namespace EST_window
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveTranslation = new System.Windows.Forms.Button();
             this.translatedTextBox = new System.Windows.Forms.RichTextBox();
-            this.baseTextBox = new System.Windows.Forms.RichTextBox();
+            this.sourceTextBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.retranslateButton = new System.Windows.Forms.Button();
@@ -229,15 +229,14 @@ namespace EST_window
             this.translatedTextBox.TabIndex = 9;
             this.translatedTextBox.Text = "";
             // 
-            // baseTextBox
+            // sourceTextBox
             // 
-            this.baseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.baseTextBox.Location = new System.Drawing.Point(12, 456);
-            this.baseTextBox.Name = "baseTextBox";
-            this.baseTextBox.ReadOnly = true;
-            this.baseTextBox.Size = new System.Drawing.Size(368, 111);
-            this.baseTextBox.TabIndex = 10;
-            this.baseTextBox.Text = "";
+            this.sourceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.sourceTextBox.Location = new System.Drawing.Point(12, 456);
+            this.sourceTextBox.Name = "sourceTextBox";
+            this.sourceTextBox.Size = new System.Drawing.Size(368, 111);
+            this.sourceTextBox.TabIndex = 10;
+            this.sourceTextBox.Text = "";
             // 
             // label1
             // 
@@ -263,13 +262,13 @@ namespace EST_window
             // 
             this.retranslateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.retranslateButton.Enabled = false;
             this.retranslateButton.Location = new System.Drawing.Point(385, 501);
             this.retranslateButton.Name = "retranslateButton";
             this.retranslateButton.Size = new System.Drawing.Size(28, 23);
             this.retranslateButton.TabIndex = 13;
             this.retranslateButton.Text = "→";
             this.retranslateButton.UseVisualStyleBackColor = true;
+            this.retranslateButton.Click += new System.EventHandler(this.retranslateButton_Click);
             // 
             // AppForm
             // 
@@ -279,7 +278,7 @@ namespace EST_window
             this.Controls.Add(this.retranslateButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.baseTextBox);
+            this.Controls.Add(this.sourceTextBox);
             this.Controls.Add(this.translatedTextBox);
             this.Controls.Add(this.saveTranslation);
             this.Controls.Add(this.RBposLabel);
@@ -324,7 +323,7 @@ namespace EST_window
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button retranslateButton;
-        public System.Windows.Forms.RichTextBox baseTextBox;
+        public System.Windows.Forms.RichTextBox sourceTextBox;
     }
 }
 

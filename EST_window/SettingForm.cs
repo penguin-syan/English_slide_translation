@@ -25,6 +25,9 @@ namespace EST_window
             this.proxy_url.Enabled = ConfigurationManager.AppSettings["proxy_enabled"].Equals("true");
             this.proxy_port.Text = ConfigurationManager.AppSettings["proxy_port"];
             this.proxy_port.Enabled = ConfigurationManager.AppSettings["proxy_enabled"].Equals("true");
+            this.targetLangBox.Text = ConfigurationManager.AppSettings["targetLang"];
+            this.sourceLangBox.Text = ConfigurationManager.AppSettings["sourceLang"];
+            this.autoTranslateCheckbox.Checked = ConfigurationManager.AppSettings["autoTranslate"].Equals("true");
         }
 
         private void GCkey_reference_Click(object sender, EventArgs e)
@@ -51,6 +54,9 @@ namespace EST_window
             config.AppSettings.Settings["proxy_enabled"].Value = this.proxy_enabled.Checked ? "true": "false";
             config.AppSettings.Settings["proxy_url"].Value = this.proxy_url.Text;
             config.AppSettings.Settings["proxy_port"].Value = this.proxy_port.Text;
+            config.AppSettings.Settings["targetLang"].Value = this.targetLangBox.Text;
+            config.AppSettings.Settings["sourceLang"].Value = this.sourceLangBox.Text;
+            config.AppSettings.Settings["autoTranslate"].Value = this.autoTranslateCheckbox.Checked ? "true" : "false";
             config.Save();
             Program.appForm.Enabled = true;
             this.Close();

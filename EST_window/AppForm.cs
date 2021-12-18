@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -14,6 +15,8 @@ using System.Runtime.InteropServices;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+
+using DeepL;
 
 namespace EST_window
 {
@@ -204,6 +207,29 @@ namespace EST_window
                     this.Close();
                 }
             }
+        }
+
+        private async void retranslateButton_Click(object sender, EventArgs e)
+        {
+            var authKey = ConfigurationManager.AppSettings["DeepL_key"];
+            Translator translator;
+
+            try
+            {
+                translator = new Translator(authKey);
+            }
+            catch (System.ArgumentException)
+            {
+                MessageBox.Show("DeepL APIを使用するためのAPI keyが設定されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //translatedTextBox.Text = translator.TranslateTextAsync(
+            var resultText = await translator.TranslateTextAsync(
+                sourceTextBox.Text,
+                LanguageCode.English,
+                LanguageCode.Japanese);
+            translatedTextBox.Text = resultText.ToString();
         }
     }
 }

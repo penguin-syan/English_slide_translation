@@ -18,7 +18,7 @@ namespace EST_window
             ImageAnnotatorClientBuilder ia_client_builder = new ImageAnnotatorClientBuilder
             {
                 CredentialsPath = ConfigurationManager.AppSettings["GC_key"]
-        };
+            };
             ImageAnnotatorClient ia_client = null;
             try
             {
@@ -128,7 +128,7 @@ namespace EST_window
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            Program.appForm.baseTextBox.Text = this.Text;
+            Program.appForm.sourceTextBox.Text = this.Text;
         }
     }
 }
