@@ -224,7 +224,6 @@ namespace EST_window
                 return;
             }
 
-            //translatedTextBox.Text = translator.TranslateTextAsync(
             var resultText = await translator.TranslateTextAsync(
                 sourceTextBox.Text,
                 LanguageCode.English,

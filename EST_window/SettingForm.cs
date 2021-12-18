@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 
+using DeepL;
+
 namespace EST_window
 {
     public partial class SettingForm : Form
@@ -27,6 +29,8 @@ namespace EST_window
             this.targetLangBox.Text = ConfigurationManager.AppSettings["targetLang"];
             this.sourceLangBox.Text = ConfigurationManager.AppSettings["sourceLang"];
             this.autoTranslateCheckbox.Checked = ConfigurationManager.AppSettings["autoTranslate"].Equals("true");
+            
+            get_deepl_usage();
         }
 
         private void GCkey_reference_Click(object sender, EventArgs e)
@@ -66,6 +70,36 @@ namespace EST_window
         {
             proxy_url.Enabled = proxy_enabled.Checked;
             proxy_port.Enabled = proxy_enabled.Checked;
+        }
+
+        private async void get_deepl_usage()
+        {
+            var authKey = ConfigurationManager.AppSettings["DeepL_key"];
+            Translator translator;
+
+            try
+            {
+                translator = new Translator(authKey);
+            }
+            catch (System.ArgumentException)
+            {
+                return;
+            }
+
+            var usage = await translator.GetUsageAsync();
+            if (usage.AnyLimitReached)
+            {
+                Console.WriteLine("Translation limit exceeded.");
+            }
+            else if (usage.Character != null)
+            {
+                Console.WriteLine($"Character usage: {usage.Character}");
+            }
+            else
+            {
+                Console.WriteLine($"{usage}");
+            }
+
         }
     }
 }

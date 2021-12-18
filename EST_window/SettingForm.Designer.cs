@@ -53,6 +53,9 @@ namespace EST_window
             this.autoTranslateCheckbox = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.sourceLangBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.deepl_usageBar = new System.Windows.Forms.ProgressBar();
+            this.deepl_usageLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.deepl.SuspendLayout();
             this.APIkey.SuspendLayout();
@@ -174,6 +177,9 @@ namespace EST_window
             // 
             // APIkey
             // 
+            this.APIkey.Controls.Add(this.deepl_usageLabel);
+            this.APIkey.Controls.Add(this.deepl_usageBar);
+            this.APIkey.Controls.Add(this.label3);
             this.APIkey.Controls.Add(this.GCkey_textBox);
             this.APIkey.Controls.Add(this.label1);
             this.APIkey.Controls.Add(this.GCkey_reference);
@@ -296,6 +302,31 @@ namespace EST_window
             this.sourceLangBox.Size = new System.Drawing.Size(121, 20);
             this.sourceLangBox.TabIndex = 1;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 98);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 12);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "DeepL API 使用状況";
+            // 
+            // deepl_usageBar
+            // 
+            this.deepl_usageBar.Location = new System.Drawing.Point(30, 118);
+            this.deepl_usageBar.Name = "deepl_usageBar";
+            this.deepl_usageBar.Size = new System.Drawing.Size(244, 14);
+            this.deepl_usageBar.TabIndex = 12;
+            // 
+            // deepl_usageLabel
+            // 
+            this.deepl_usageLabel.AutoSize = true;
+            this.deepl_usageLabel.Location = new System.Drawing.Point(281, 118);
+            this.deepl_usageLabel.Name = "deepl_usageLabel";
+            this.deepl_usageLabel.Size = new System.Drawing.Size(85, 12);
+            this.deepl_usageLabel.TabIndex = 13;
+            this.deepl_usageLabel.Text = "******/500,000";
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -344,5 +375,8 @@ namespace EST_window
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox sourceLangBox;
+        private System.Windows.Forms.Label deepl_usageLabel;
+        private System.Windows.Forms.ProgressBar deepl_usageBar;
+        private System.Windows.Forms.Label label3;
     }
 }
