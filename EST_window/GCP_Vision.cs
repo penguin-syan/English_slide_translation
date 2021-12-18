@@ -54,15 +54,19 @@ namespace EST_window
                     {
                         string str = "";
                         foreach (var word in paragraph.Words)
-                        {
                             str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
-                        }
+
                         textBlocks[i].setBlockText(str);
                     }
                 }
 
-                foreach(var tblock in textBlocks)
+
+                AreaLabel[] label = new AreaLabel[textBlocks.Length];
+                for(int i = 0; i < textBlocks.Length; i++)
                 {
+                    TextBlocks tblock = textBlocks[i];
+                    label[i] = new AreaLabel(tblock);
+
                     Console.Write(tblock.getBlockLocation() + " ");
                     Console.WriteLine(tblock.getBlockText());
                 }
@@ -76,7 +80,7 @@ namespace EST_window
 
 
     class TextBlocks{
-        int x, y, width, height;
+        public int x, y, width, height;
         string text;
 
         public void setBlockLocation(int x0, int y0, int x1, int y1)
@@ -86,7 +90,7 @@ namespace EST_window
             this.width = x1 - x0;
             this.height = y1 - y0;
 
-            Console.WriteLine($"{x0}, {y1}, {x1}, {y1}");
+            Console.WriteLine($"{x0}, {y0}, {x1}, {y1}");
         }
 
         public void setBlockText(string text)
@@ -102,6 +106,19 @@ namespace EST_window
         public string getBlockLocation()
         {
             return $"({this.x}, {this.y}, {this.width}, {this.height})";
+        }
+    }
+
+    class AreaLabel : Label
+    {
+        public AreaLabel(TextBlocks textBlocks)
+        {
+            this.AutoSize = true;
+            //this.Parent = Program.appForm.pictureBox1;
+            this.Location = new System.Drawing.Point(textBlocks.x, textBlocks.y);
+            Program.appForm.pictureBox1.Controls.Add(this);
+
+            this.Text = textBlocks.getBlockText();
         }
     }
 }

@@ -40,16 +40,20 @@ namespace EST_window
             this.GCkey_reference = new System.Windows.Forms.Button();
             this.GCkey_textBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.APIkey = new System.Windows.Forms.TabPage();
+            this.network = new System.Windows.Forms.TabPage();
             this.proxy_port = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.proxy_url = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.proxy_enabled = new System.Windows.Forms.CheckBox();
+            this.general = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.APIkey.SuspendLayout();
+            this.network.SuspendLayout();
+            this.general.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -140,45 +144,46 @@ namespace EST_window
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.general);
+            this.tabControl1.Controls.Add(this.APIkey);
+            this.tabControl1.Controls.Add(this.network);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(394, 174);
             this.tabControl1.TabIndex = 11;
             // 
-            // tabPage1
+            // APIkey
             // 
-            this.tabPage1.Controls.Add(this.GCkey_textBox);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.GCkey_reference);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.deepl_mode);
-            this.tabPage1.Controls.Add(this.deeplKey_textBox);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(386, 148);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "APIキー設定";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.APIkey.Controls.Add(this.GCkey_textBox);
+            this.APIkey.Controls.Add(this.label1);
+            this.APIkey.Controls.Add(this.GCkey_reference);
+            this.APIkey.Controls.Add(this.label2);
+            this.APIkey.Controls.Add(this.deepl_mode);
+            this.APIkey.Controls.Add(this.deeplKey_textBox);
+            this.APIkey.Controls.Add(this.label3);
+            this.APIkey.Location = new System.Drawing.Point(4, 22);
+            this.APIkey.Name = "APIkey";
+            this.APIkey.Padding = new System.Windows.Forms.Padding(3);
+            this.APIkey.Size = new System.Drawing.Size(386, 148);
+            this.APIkey.TabIndex = 0;
+            this.APIkey.Text = "APIキー設定";
+            this.APIkey.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // network
             // 
-            this.tabPage2.Controls.Add(this.proxy_port);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.proxy_url);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.proxy_enabled);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(386, 148);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ネットワーク設定";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.network.Controls.Add(this.proxy_port);
+            this.network.Controls.Add(this.label5);
+            this.network.Controls.Add(this.proxy_url);
+            this.network.Controls.Add(this.label4);
+            this.network.Controls.Add(this.proxy_enabled);
+            this.network.Location = new System.Drawing.Point(4, 22);
+            this.network.Name = "network";
+            this.network.Padding = new System.Windows.Forms.Padding(3);
+            this.network.Size = new System.Drawing.Size(386, 148);
+            this.network.TabIndex = 1;
+            this.network.Text = "ネットワーク設定";
+            this.network.UseVisualStyleBackColor = true;
             // 
             // proxy_port
             // 
@@ -224,6 +229,37 @@ namespace EST_window
             this.proxy_enabled.UseVisualStyleBackColor = true;
             this.proxy_enabled.CheckedChanged += new System.EventHandler(this.proxy_enabled_CheckedChanged);
             // 
+            // general
+            // 
+            this.general.Controls.Add(this.comboBox1);
+            this.general.Controls.Add(this.label6);
+            this.general.Location = new System.Drawing.Point(4, 22);
+            this.general.Name = "general";
+            this.general.Padding = new System.Windows.Forms.Padding(3);
+            this.general.Size = new System.Drawing.Size(386, 148);
+            this.general.TabIndex = 2;
+            this.general.Text = "一般";
+            this.general.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "翻訳先言語";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "日本語(&J)"});
+            this.comboBox1.Location = new System.Drawing.Point(87, 11);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 1;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -236,10 +272,12 @@ namespace EST_window
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "オプション";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.APIkey.ResumeLayout(false);
+            this.APIkey.PerformLayout();
+            this.network.ResumeLayout(false);
+            this.network.PerformLayout();
+            this.general.ResumeLayout(false);
+            this.general.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -257,12 +295,15 @@ namespace EST_window
         private System.Windows.Forms.Button GCkey_reference;
         private System.Windows.Forms.TextBox GCkey_textBox;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage APIkey;
+        private System.Windows.Forms.TabPage network;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox proxy_url;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox proxy_enabled;
         private System.Windows.Forms.TextBox proxy_port;
+        private System.Windows.Forms.TabPage general;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

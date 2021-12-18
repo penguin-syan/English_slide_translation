@@ -132,20 +132,20 @@ namespace EST_window
             // 
             this.開くOToolStripMenuItem.Enabled = false;
             this.開くOToolStripMenuItem.Name = "開くOToolStripMenuItem";
-            this.開くOToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.開くOToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.開くOToolStripMenuItem.Text = "開く(&O)";
             // 
             // 保存SToolStripMenuItem
             // 
             this.保存SToolStripMenuItem.Enabled = false;
             this.保存SToolStripMenuItem.Name = "保存SToolStripMenuItem";
-            this.保存SToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存SToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.保存SToolStripMenuItem.Text = "保存(&S)";
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.終了ToolStripMenuItem.Text = "終了(&X)";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
@@ -160,7 +160,7 @@ namespace EST_window
             // 初期設定ToolStripMenuItem
             // 
             this.初期設定ToolStripMenuItem.Name = "初期設定ToolStripMenuItem";
-            this.初期設定ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.初期設定ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.初期設定ToolStripMenuItem.Text = "環境設定(&O)";
             this.初期設定ToolStripMenuItem.Click += new System.EventHandler(this.初期設定ToolStripMenuItem_Click);
             // 
@@ -239,7 +239,6 @@ namespace EST_window
         #endregion
 
         private System.Windows.Forms.Button setAreaButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer setAreaTimer;
         private System.Windows.Forms.Button startTranslation;
         private System.Windows.Forms.Label LTposLabel;
@@ -257,6 +256,7 @@ namespace EST_window
         private System.Windows.Forms.ToolStripMenuItem 保存SToolStripMenuItem;
         internal System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button saveTranslation;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

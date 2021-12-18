@@ -79,6 +79,7 @@ namespace EST_window
                 Directory.CreateDirectory(userDoc + "\\EST");
             }
             bitmap.Save(userDoc + "\\EST\\file.png");
+            //この次の処理で時間がかかるので，何か考えると良いかもしれない．
             GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png"); //デバッグ時に不要なリクエストを防ぐためにコメントアウトしてもよい
         }
 
