@@ -89,15 +89,19 @@ namespace EST_window
             var usage = await translator.GetUsageAsync();
             if (usage.AnyLimitReached)
             {
-                Console.WriteLine("Translation limit exceeded.");
+                deepl_usageLabel.Text = "Limit exceeded.";
+                deepl_usageBar.Value = 500000;
             }
             else if (usage.Character != null)
             {
-                Console.WriteLine($"Character usage: {usage.Character}");
+                string usage_str = usage.Character.ToString().Split(' ')[0];
+                Console.WriteLine(usage_str);
+                deepl_usageBar.Value = Int32.Parse(usage_str);
+                deepl_usageLabel.Text = String.Format("{0:#,0}/500,000", usage_str);
             }
             else
             {
-                Console.WriteLine($"{usage}");
+                deepl_usageLabel.Text = "ERROR";
             }
 
         }
