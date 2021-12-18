@@ -59,10 +59,10 @@ namespace EST_window
             setAreaTimer.Start();
         }
 
-
+        public Rectangle rectangle;
         private void startTranslation_Click(object sender, EventArgs e)
         {
-            Rectangle rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
+            rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
             Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 

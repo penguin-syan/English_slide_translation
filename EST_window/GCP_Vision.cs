@@ -113,9 +113,13 @@ namespace EST_window
     {
         public AreaLabel(TextBlocks textBlocks)
         {
-            this.AutoSize = true;
-            //this.Parent = Program.appForm.pictureBox1;
-            this.Location = new System.Drawing.Point(textBlocks.x, textBlocks.y);
+            double widthScale = (double)Program.appForm.pictureBox1.Size.Width / Program.appForm.rectangle.Width;
+            double heightScale = (double)Program.appForm.pictureBox1.Size.Height / Program.appForm.rectangle.Height;
+
+            this.AutoSize = false;
+            this.Size = new System.Drawing.Size(textBlocks.width, textBlocks.height);
+            this.Parent = Program.appForm.pictureBox1;
+            this.Location = new System.Drawing.Point((int)(textBlocks.x * widthScale), (int)(textBlocks.y * heightScale));
             Program.appForm.pictureBox1.Controls.Add(this);
 
             this.Text = textBlocks.getBlockText();
