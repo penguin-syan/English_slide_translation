@@ -39,13 +39,15 @@ namespace EST_window
             this.GCkey_textBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.deepl = new System.Windows.Forms.TabPage();
+            this.translateToolBox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.autoTranslateCheckbox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.sourceLangBox = new System.Windows.Forms.ComboBox();
             this.targetLangBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.APIkey = new System.Windows.Forms.TabPage();
+            this.API = new System.Windows.Forms.TabPage();
             this.deepl_usageLabel = new System.Windows.Forms.Label();
             this.deepl_usageBar = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,9 +58,12 @@ namespace EST_window
             this.proxy_url = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.proxy_enabled = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.gas_translate_url = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.deepl.SuspendLayout();
-            this.APIkey.SuspendLayout();
+            this.API.SuspendLayout();
             this.network.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +80,7 @@ namespace EST_window
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 81);
+            this.label2.Location = new System.Drawing.Point(15, 117);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 18);
@@ -85,7 +90,7 @@ namespace EST_window
             // close_button
             // 
             this.close_button.Location = new System.Drawing.Point(496, 288);
-            this.close_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.close_button.Margin = new System.Windows.Forms.Padding(4);
             this.close_button.Name = "close_button";
             this.close_button.Size = new System.Drawing.Size(112, 34);
             this.close_button.TabIndex = 2;
@@ -95,8 +100,8 @@ namespace EST_window
             // 
             // deeplKey_textBox
             // 
-            this.deeplKey_textBox.Location = new System.Drawing.Point(45, 104);
-            this.deeplKey_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deeplKey_textBox.Location = new System.Drawing.Point(45, 140);
+            this.deeplKey_textBox.Margin = new System.Windows.Forms.Padding(4);
             this.deeplKey_textBox.Name = "deeplKey_textBox";
             this.deeplKey_textBox.Size = new System.Drawing.Size(364, 25);
             this.deeplKey_textBox.TabIndex = 3;
@@ -104,7 +109,7 @@ namespace EST_window
             // save_button
             // 
             this.save_button.Location = new System.Drawing.Point(374, 288);
-            this.save_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save_button.Margin = new System.Windows.Forms.Padding(4);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(112, 34);
             this.save_button.TabIndex = 4;
@@ -119,7 +124,7 @@ namespace EST_window
             // GCkey_reference
             // 
             this.GCkey_reference.Location = new System.Drawing.Point(435, 30);
-            this.GCkey_reference.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GCkey_reference.Margin = new System.Windows.Forms.Padding(4);
             this.GCkey_reference.Name = "GCkey_reference";
             this.GCkey_reference.Size = new System.Drawing.Size(112, 34);
             this.GCkey_reference.TabIndex = 9;
@@ -130,7 +135,7 @@ namespace EST_window
             // GCkey_textBox
             // 
             this.GCkey_textBox.Location = new System.Drawing.Point(45, 33);
-            this.GCkey_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GCkey_textBox.Margin = new System.Windows.Forms.Padding(4);
             this.GCkey_textBox.Name = "GCkey_textBox";
             this.GCkey_textBox.Size = new System.Drawing.Size(364, 25);
             this.GCkey_textBox.TabIndex = 10;
@@ -138,10 +143,10 @@ namespace EST_window
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.deepl);
-            this.tabControl1.Controls.Add(this.APIkey);
+            this.tabControl1.Controls.Add(this.API);
             this.tabControl1.Controls.Add(this.network);
             this.tabControl1.Location = new System.Drawing.Point(18, 18);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(591, 261);
@@ -149,6 +154,9 @@ namespace EST_window
             // 
             // deepl
             // 
+            this.deepl.Controls.Add(this.label11);
+            this.deepl.Controls.Add(this.translateToolBox);
+            this.deepl.Controls.Add(this.label10);
             this.deepl.Controls.Add(this.label9);
             this.deepl.Controls.Add(this.autoTranslateCheckbox);
             this.deepl.Controls.Add(this.label8);
@@ -156,18 +164,39 @@ namespace EST_window
             this.deepl.Controls.Add(this.targetLangBox);
             this.deepl.Controls.Add(this.label6);
             this.deepl.Location = new System.Drawing.Point(4, 28);
-            this.deepl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deepl.Margin = new System.Windows.Forms.Padding(4);
             this.deepl.Name = "deepl";
-            this.deepl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deepl.Padding = new System.Windows.Forms.Padding(4);
             this.deepl.Size = new System.Drawing.Size(583, 229);
             this.deepl.TabIndex = 2;
             this.deepl.Text = "翻訳設定";
             this.deepl.UseVisualStyleBackColor = true;
             // 
+            // translateToolBox
+            // 
+            this.translateToolBox.Enabled = false;
+            this.translateToolBox.FormattingEnabled = true;
+            this.translateToolBox.Items.AddRange(new object[] {
+            "DeepL 翻訳",
+            "Google 翻訳"});
+            this.translateToolBox.Location = new System.Drawing.Point(46, 30);
+            this.translateToolBox.Name = "translateToolBox";
+            this.translateToolBox.Size = new System.Drawing.Size(180, 26);
+            this.translateToolBox.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 18);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "翻訳方法";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 10);
+            this.label9.Location = new System.Drawing.Point(15, 80);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 18);
@@ -177,8 +206,9 @@ namespace EST_window
             // autoTranslateCheckbox
             // 
             this.autoTranslateCheckbox.AutoSize = true;
+            this.autoTranslateCheckbox.Enabled = false;
             this.autoTranslateCheckbox.Location = new System.Drawing.Point(46, 176);
-            this.autoTranslateCheckbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.autoTranslateCheckbox.Margin = new System.Windows.Forms.Padding(4);
             this.autoTranslateCheckbox.Name = "autoTranslateCheckbox";
             this.autoTranslateCheckbox.Size = new System.Drawing.Size(271, 22);
             this.autoTranslateCheckbox.TabIndex = 3;
@@ -197,25 +227,27 @@ namespace EST_window
             // 
             // sourceLangBox
             // 
+            this.sourceLangBox.Enabled = false;
             this.sourceLangBox.FormattingEnabled = true;
             this.sourceLangBox.Items.AddRange(new object[] {
             "自動（Auto）",
             "英語（EN）",
             "日本語（JP）"});
-            this.sourceLangBox.Location = new System.Drawing.Point(46, 33);
-            this.sourceLangBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sourceLangBox.Location = new System.Drawing.Point(43, 103);
+            this.sourceLangBox.Margin = new System.Windows.Forms.Padding(4);
             this.sourceLangBox.Name = "sourceLangBox";
             this.sourceLangBox.Size = new System.Drawing.Size(180, 26);
             this.sourceLangBox.TabIndex = 1;
             // 
             // targetLangBox
             // 
+            this.targetLangBox.Enabled = false;
             this.targetLangBox.FormattingEnabled = true;
             this.targetLangBox.Items.AddRange(new object[] {
             "英語（EN）",
             "日本語（JP）"});
-            this.targetLangBox.Location = new System.Drawing.Point(46, 102);
-            this.targetLangBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.targetLangBox.Location = new System.Drawing.Point(362, 102);
+            this.targetLangBox.Margin = new System.Windows.Forms.Padding(4);
             this.targetLangBox.Name = "targetLangBox";
             this.targetLangBox.Size = new System.Drawing.Size(180, 26);
             this.targetLangBox.TabIndex = 1;
@@ -223,36 +255,38 @@ namespace EST_window
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 80);
+            this.label6.Location = new System.Drawing.Point(331, 80);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 18);
             this.label6.TabIndex = 0;
             this.label6.Text = "翻訳先言語";
             // 
-            // APIkey
+            // API
             // 
-            this.APIkey.Controls.Add(this.deepl_usageLabel);
-            this.APIkey.Controls.Add(this.deepl_usageBar);
-            this.APIkey.Controls.Add(this.label3);
-            this.APIkey.Controls.Add(this.GCkey_textBox);
-            this.APIkey.Controls.Add(this.label1);
-            this.APIkey.Controls.Add(this.GCkey_reference);
-            this.APIkey.Controls.Add(this.label2);
-            this.APIkey.Controls.Add(this.deeplKey_textBox);
-            this.APIkey.Location = new System.Drawing.Point(4, 28);
-            this.APIkey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.APIkey.Name = "APIkey";
-            this.APIkey.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.APIkey.Size = new System.Drawing.Size(583, 229);
-            this.APIkey.TabIndex = 0;
-            this.APIkey.Text = "APIキー設定";
-            this.APIkey.UseVisualStyleBackColor = true;
+            this.API.Controls.Add(this.gas_translate_url);
+            this.API.Controls.Add(this.label12);
+            this.API.Controls.Add(this.deepl_usageLabel);
+            this.API.Controls.Add(this.deepl_usageBar);
+            this.API.Controls.Add(this.label3);
+            this.API.Controls.Add(this.GCkey_textBox);
+            this.API.Controls.Add(this.label1);
+            this.API.Controls.Add(this.GCkey_reference);
+            this.API.Controls.Add(this.label2);
+            this.API.Controls.Add(this.deeplKey_textBox);
+            this.API.Location = new System.Drawing.Point(4, 28);
+            this.API.Margin = new System.Windows.Forms.Padding(4);
+            this.API.Name = "API";
+            this.API.Padding = new System.Windows.Forms.Padding(4);
+            this.API.Size = new System.Drawing.Size(583, 229);
+            this.API.TabIndex = 0;
+            this.API.Text = "API設定";
+            this.API.UseVisualStyleBackColor = true;
             // 
             // deepl_usageLabel
             // 
             this.deepl_usageLabel.AutoSize = true;
-            this.deepl_usageLabel.Location = new System.Drawing.Point(422, 177);
+            this.deepl_usageLabel.Location = new System.Drawing.Point(422, 199);
             this.deepl_usageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.deepl_usageLabel.Name = "deepl_usageLabel";
             this.deepl_usageLabel.Size = new System.Drawing.Size(129, 18);
@@ -261,8 +295,8 @@ namespace EST_window
             // 
             // deepl_usageBar
             // 
-            this.deepl_usageBar.Location = new System.Drawing.Point(45, 177);
-            this.deepl_usageBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deepl_usageBar.Location = new System.Drawing.Point(45, 199);
+            this.deepl_usageBar.Margin = new System.Windows.Forms.Padding(4);
             this.deepl_usageBar.Maximum = 500000;
             this.deepl_usageBar.Name = "deepl_usageBar";
             this.deepl_usageBar.Size = new System.Drawing.Size(366, 21);
@@ -271,7 +305,7 @@ namespace EST_window
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 147);
+            this.label3.Location = new System.Drawing.Point(18, 169);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 18);
@@ -287,9 +321,9 @@ namespace EST_window
             this.network.Controls.Add(this.label4);
             this.network.Controls.Add(this.proxy_enabled);
             this.network.Location = new System.Drawing.Point(4, 28);
-            this.network.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.network.Margin = new System.Windows.Forms.Padding(4);
             this.network.Name = "network";
-            this.network.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.network.Padding = new System.Windows.Forms.Padding(4);
             this.network.Size = new System.Drawing.Size(583, 229);
             this.network.TabIndex = 1;
             this.network.Text = "ネットワーク設定";
@@ -308,7 +342,7 @@ namespace EST_window
             // proxy_port
             // 
             this.proxy_port.Location = new System.Drawing.Point(36, 172);
-            this.proxy_port.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proxy_port.Margin = new System.Windows.Forms.Padding(4);
             this.proxy_port.Name = "proxy_port";
             this.proxy_port.Size = new System.Drawing.Size(148, 25);
             this.proxy_port.TabIndex = 4;
@@ -326,7 +360,7 @@ namespace EST_window
             // proxy_url
             // 
             this.proxy_url.Location = new System.Drawing.Point(36, 102);
-            this.proxy_url.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proxy_url.Margin = new System.Windows.Forms.Padding(4);
             this.proxy_url.Name = "proxy_url";
             this.proxy_url.Size = new System.Drawing.Size(462, 25);
             this.proxy_url.TabIndex = 2;
@@ -346,13 +380,39 @@ namespace EST_window
             this.proxy_enabled.AutoSize = true;
             this.proxy_enabled.Enabled = false;
             this.proxy_enabled.Location = new System.Drawing.Point(36, 33);
-            this.proxy_enabled.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proxy_enabled.Margin = new System.Windows.Forms.Padding(4);
             this.proxy_enabled.Name = "proxy_enabled";
             this.proxy_enabled.Size = new System.Drawing.Size(215, 22);
             this.proxy_enabled.TabIndex = 0;
             this.proxy_enabled.Text = "プロキシサーバを使用する";
             this.proxy_enabled.UseVisualStyleBackColor = true;
             this.proxy_enabled.CheckedChanged += new System.EventHandler(this.proxy_enabled_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(280, 111);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(26, 18);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "→";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 62);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(147, 18);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "GAS 翻訳API URL";
+            // 
+            // gas_translate_url
+            // 
+            this.gas_translate_url.Enabled = false;
+            this.gas_translate_url.Location = new System.Drawing.Point(45, 84);
+            this.gas_translate_url.Name = "gas_translate_url";
+            this.gas_translate_url.Size = new System.Drawing.Size(364, 25);
+            this.gas_translate_url.TabIndex = 15;
             // 
             // SettingForm
             // 
@@ -362,15 +422,15 @@ namespace EST_window
             this.Controls.Add(this.close_button);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.save_button);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SettingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "オプション";
             this.tabControl1.ResumeLayout(false);
             this.deepl.ResumeLayout(false);
             this.deepl.PerformLayout();
-            this.APIkey.ResumeLayout(false);
-            this.APIkey.PerformLayout();
+            this.API.ResumeLayout(false);
+            this.API.PerformLayout();
             this.network.ResumeLayout(false);
             this.network.PerformLayout();
             this.ResumeLayout(false);
@@ -388,7 +448,7 @@ namespace EST_window
         private System.Windows.Forms.Button GCkey_reference;
         private System.Windows.Forms.TextBox GCkey_textBox;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage APIkey;
+        private System.Windows.Forms.TabPage API;
         private System.Windows.Forms.TabPage network;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox proxy_url;
@@ -406,5 +466,10 @@ namespace EST_window
         private System.Windows.Forms.Label deepl_usageLabel;
         private System.Windows.Forms.ProgressBar deepl_usageBar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox translateToolBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox gas_translate_url;
+        private System.Windows.Forms.Label label12;
     }
 }

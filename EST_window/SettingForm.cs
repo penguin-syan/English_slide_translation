@@ -29,6 +29,8 @@ namespace EST_window
             this.targetLangBox.Text = ConfigurationManager.AppSettings["targetLang"];
             this.sourceLangBox.Text = ConfigurationManager.AppSettings["sourceLang"];
             this.autoTranslateCheckbox.Checked = ConfigurationManager.AppSettings["autoTranslate"].Equals("true");
+            this.translateToolBox.Text = ConfigurationManager.AppSettings["translateTool"];
+            this.gas_translate_url.Text = ConfigurationManager.AppSettings["gasTranslateurl"];
             
             get_deepl_usage();
         }
@@ -59,6 +61,8 @@ namespace EST_window
             config.AppSettings.Settings["targetLang"].Value = this.targetLangBox.Text;
             config.AppSettings.Settings["sourceLang"].Value = this.sourceLangBox.Text;
             config.AppSettings.Settings["autoTranslate"].Value = this.autoTranslateCheckbox.Checked ? "true" : "false";
+            config.AppSettings.Settings["translateTool"].Value = this.translateToolBox.Text;
+            config.AppSettings.Settings["gasTranslateurl"].Value = this.gas_translate_url.Text;
             config.Save();
             Program.appForm.Enabled = true;
             this.Close();
