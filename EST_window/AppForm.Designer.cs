@@ -49,6 +49,11 @@ namespace EST_window
             this.gitリポジトリToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveTranslation = new System.Windows.Forms.Button();
+            this.translatedTextBox = new System.Windows.Forms.RichTextBox();
+            this.baseTextBox = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.retranslateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -214,11 +219,68 @@ namespace EST_window
             this.saveTranslation.Text = "保存";
             this.saveTranslation.UseVisualStyleBackColor = true;
             // 
+            // translatedTextBox
+            // 
+            this.translatedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.translatedTextBox.Location = new System.Drawing.Point(420, 456);
+            this.translatedTextBox.Name = "translatedTextBox";
+            this.translatedTextBox.ReadOnly = true;
+            this.translatedTextBox.Size = new System.Drawing.Size(368, 111);
+            this.translatedTextBox.TabIndex = 9;
+            this.translatedTextBox.Text = "";
+            // 
+            // baseTextBox
+            // 
+            this.baseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.baseTextBox.Location = new System.Drawing.Point(12, 456);
+            this.baseTextBox.Name = "baseTextBox";
+            this.baseTextBox.ReadOnly = true;
+            this.baseTextBox.Size = new System.Drawing.Size(368, 111);
+            this.baseTextBox.TabIndex = 10;
+            this.baseTextBox.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 441);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "原文";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(416, 441);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "翻訳文";
+            // 
+            // retranslateButton
+            // 
+            this.retranslateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.retranslateButton.Enabled = false;
+            this.retranslateButton.Location = new System.Drawing.Point(385, 501);
+            this.retranslateButton.Name = "retranslateButton";
+            this.retranslateButton.Size = new System.Drawing.Size(28, 23);
+            this.retranslateButton.TabIndex = 13;
+            this.retranslateButton.Text = "→";
+            this.retranslateButton.UseVisualStyleBackColor = true;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 575);
+            this.Controls.Add(this.retranslateButton);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.baseTextBox);
+            this.Controls.Add(this.translatedTextBox);
             this.Controls.Add(this.saveTranslation);
             this.Controls.Add(this.RBposLabel);
             this.Controls.Add(this.LTposLabel);
@@ -226,6 +288,7 @@ namespace EST_window
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.setAreaButton);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AppForm";
             this.Text = "[EST] English Slide Translation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -257,6 +320,11 @@ namespace EST_window
         internal System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button saveTranslation;
         public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.RichTextBox translatedTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button retranslateButton;
+        public System.Windows.Forms.RichTextBox baseTextBox;
     }
 }
 

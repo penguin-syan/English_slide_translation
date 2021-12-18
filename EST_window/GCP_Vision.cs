@@ -124,5 +124,11 @@ namespace EST_window
 
             this.Text = textBlocks.getBlockText();
         }
+
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            Program.appForm.baseTextBox.Text = this.Text;
+        }
     }
 }
