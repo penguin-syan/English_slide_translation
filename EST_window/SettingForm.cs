@@ -19,7 +19,6 @@ namespace EST_window
 
             this.GCkey_textBox.Text = ConfigurationManager.AppSettings["GC_key"];
             this.deeplKey_textBox.Text = ConfigurationManager.AppSettings["DeepL_key"];
-            this.deepl_mode.Text = ConfigurationManager.AppSettings["DeepL_type"];
             this.proxy_enabled.Checked = ConfigurationManager.AppSettings["proxy_enabled"].Equals("true");
             this.proxy_url.Text = ConfigurationManager.AppSettings["proxy_url"];
             this.proxy_url.Enabled = ConfigurationManager.AppSettings["proxy_enabled"].Equals("true");
@@ -50,7 +49,6 @@ namespace EST_window
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings["GC_key"].Value = this.GCkey_textBox.Text;
             config.AppSettings.Settings["DeepL_key"].Value = this.deeplKey_textBox.Text;
-            config.AppSettings.Settings["DeepL_type"].Value = this.deepl_mode.Text;
             config.AppSettings.Settings["proxy_enabled"].Value = this.proxy_enabled.Checked ? "true": "false";
             config.AppSettings.Settings["proxy_url"].Value = this.proxy_url.Text;
             config.AppSettings.Settings["proxy_port"].Value = this.proxy_port.Text;

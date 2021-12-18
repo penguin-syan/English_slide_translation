@@ -34,8 +34,6 @@ namespace EST_window
             this.close_button = new System.Windows.Forms.Button();
             this.deeplKey_textBox = new System.Windows.Forms.TextBox();
             this.save_button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.deepl_mode = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.GCkey_reference = new System.Windows.Forms.Button();
             this.GCkey_textBox = new System.Windows.Forms.TextBox();
@@ -105,26 +103,6 @@ namespace EST_window
             this.save_button.Text = "保存";
             this.save_button.UseVisualStyleBackColor = true;
             this.save_button.Click += new System.EventHandler(this.save_button_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 12);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "DeepL API Key type";
-            // 
-            // deepl_mode
-            // 
-            this.deepl_mode.FormattingEnabled = true;
-            this.deepl_mode.Items.AddRange(new object[] {
-            "DeepL API Free",
-            "DeepL API Pro"});
-            this.deepl_mode.Location = new System.Drawing.Point(30, 118);
-            this.deepl_mode.Name = "deepl_mode";
-            this.deepl_mode.Size = new System.Drawing.Size(121, 20);
-            this.deepl_mode.TabIndex = 8;
             // 
             // openFileDialog1
             // 
@@ -200,9 +178,7 @@ namespace EST_window
             this.APIkey.Controls.Add(this.label1);
             this.APIkey.Controls.Add(this.GCkey_reference);
             this.APIkey.Controls.Add(this.label2);
-            this.APIkey.Controls.Add(this.deepl_mode);
             this.APIkey.Controls.Add(this.deeplKey_textBox);
-            this.APIkey.Controls.Add(this.label3);
             this.APIkey.Location = new System.Drawing.Point(4, 22);
             this.APIkey.Name = "APIkey";
             this.APIkey.Padding = new System.Windows.Forms.Padding(3);
@@ -349,8 +325,6 @@ namespace EST_window
         private System.Windows.Forms.Button close_button;
         private System.Windows.Forms.TextBox deeplKey_textBox;
         private System.Windows.Forms.Button save_button;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox deepl_mode;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button GCkey_reference;
         private System.Windows.Forms.TextBox GCkey_textBox;
