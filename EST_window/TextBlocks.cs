@@ -39,6 +39,7 @@ namespace EST_window
         }
     }
 
+
     public class AreaLabel : Label
     {
         public AreaLabel(TextBlocks textBlocks)
@@ -46,13 +47,16 @@ namespace EST_window
             double widthScale = (double)Program.appForm.pictureBox1.Size.Width / Program.appForm.rectangle.Width;
             double heightScale = (double)Program.appForm.pictureBox1.Size.Height / Program.appForm.rectangle.Height;
 
-            this.AutoSize = false;
-            this.Size = new System.Drawing.Size(textBlocks.width, textBlocks.height);
-            this.Parent = Program.appForm.pictureBox1;
-            this.Location = new System.Drawing.Point((int)(textBlocks.x * widthScale), (int)(textBlocks.y * heightScale));
-            Program.appForm.pictureBox1.Controls.Add(this);
-
-            this.Text = textBlocks.getBlockText();
+            Program.appForm.Invoke((Action)(() =>
+            {
+                this.AutoSize = false;
+                this.Size = new System.Drawing.Size(textBlocks.width, textBlocks.height);
+                this.Parent = Program.appForm.pictureBox1;
+                this.Location = new System.Drawing.Point((int)(textBlocks.x * widthScale), (int)(textBlocks.y * heightScale));
+                this.BackColor = System.Drawing.Color.Red;
+                Program.appForm.pictureBox1.Controls.Add(this);
+                this.Text = textBlocks.getBlockText();
+            }));
         }
 
         protected override void OnClick(EventArgs e)

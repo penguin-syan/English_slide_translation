@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Threading;
 using System.Runtime.InteropServices;
 using System.Net;
 using Newtonsoft.Json.Linq;
@@ -64,7 +65,7 @@ namespace EST_window
 
         public Rectangle rectangle;
         public AreaLabel[] areaLabel = new AreaLabel[20];
-        private void startTranslation_Click(object sender, EventArgs e)
+        private async void startTranslation_Click(object sender, EventArgs e)
         {
             progressBar1.MarqueeAnimationSpeed = 25;
             rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
@@ -84,9 +85,18 @@ namespace EST_window
                 Directory.CreateDirectory(userDoc + "\\EST");
             }
             bitmap.Save(userDoc + "\\EST\\file.png");
+
             //この次の処理で時間がかかるので，何か考えると良いかもしれない．
-            GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
+            Application.DoEvents();
+            await Task.Run(() =>
+            {
+                //this.Invoke((Action)(() =>
+                //{
+                    GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
+                //}));
+            });
             progressBar1.MarqueeAnimationSpeed = 0;
+            
         }
 
 

@@ -55,9 +55,8 @@ namespace EST_window
                     {
                         foreach (var word in paragraph.Words)
                             str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
-
-                        textBlocks[i].setBlockText(str);
                     }
+                    textBlocks[i].setBlockText(str);
                 }
 
                 for(int i = 0; i < 20; i++)
