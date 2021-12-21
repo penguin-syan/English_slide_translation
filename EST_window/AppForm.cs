@@ -90,10 +90,7 @@ namespace EST_window
             Application.DoEvents();
             await Task.Run(() =>
             {
-                //this.Invoke((Action)(() =>
-                //{
-                    GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
-                //}));
+                GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
             });
             progressBar1.MarqueeAnimationSpeed = 0;
             
