@@ -54,13 +54,15 @@ namespace EST_window
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.retranslateButton = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // setAreaButton
             // 
-            this.setAreaButton.Location = new System.Drawing.Point(696, 336);
+            this.setAreaButton.Location = new System.Drawing.Point(696, 322);
             this.setAreaButton.Name = "setAreaButton";
             this.setAreaButton.Size = new System.Drawing.Size(75, 23);
             this.setAreaButton.TabIndex = 0;
@@ -73,7 +75,7 @@ namespace EST_window
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Location = new System.Drawing.Point(12, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(649, 411);
+            this.pictureBox1.Size = new System.Drawing.Size(670, 377);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -85,18 +87,18 @@ namespace EST_window
             // 
             // startTranslation
             // 
-            this.startTranslation.Location = new System.Drawing.Point(696, 365);
+            this.startTranslation.Location = new System.Drawing.Point(696, 351);
             this.startTranslation.Name = "startTranslation";
             this.startTranslation.Size = new System.Drawing.Size(75, 23);
             this.startTranslation.TabIndex = 2;
-            this.startTranslation.Text = "翻訳";
+            this.startTranslation.Text = "画像取得";
             this.startTranslation.UseVisualStyleBackColor = true;
             this.startTranslation.Click += new System.EventHandler(this.startTranslation_Click);
             // 
             // LTposLabel
             // 
             this.LTposLabel.AutoSize = true;
-            this.LTposLabel.Location = new System.Drawing.Point(668, 34);
+            this.LTposLabel.Location = new System.Drawing.Point(694, 34);
             this.LTposLabel.Name = "LTposLabel";
             this.LTposLabel.Size = new System.Drawing.Size(35, 12);
             this.LTposLabel.TabIndex = 3;
@@ -105,7 +107,7 @@ namespace EST_window
             // RBposLabel
             // 
             this.RBposLabel.AutoSize = true;
-            this.RBposLabel.Location = new System.Drawing.Point(668, 46);
+            this.RBposLabel.Location = new System.Drawing.Point(694, 46);
             this.RBposLabel.Name = "RBposLabel";
             this.RBposLabel.Size = new System.Drawing.Size(35, 12);
             this.RBposLabel.TabIndex = 4;
@@ -212,7 +214,7 @@ namespace EST_window
             // saveTranslation
             // 
             this.saveTranslation.Enabled = false;
-            this.saveTranslation.Location = new System.Drawing.Point(696, 395);
+            this.saveTranslation.Location = new System.Drawing.Point(696, 381);
             this.saveTranslation.Name = "saveTranslation";
             this.saveTranslation.Size = new System.Drawing.Size(75, 23);
             this.saveTranslation.TabIndex = 8;
@@ -222,7 +224,7 @@ namespace EST_window
             // translatedTextBox
             // 
             this.translatedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.translatedTextBox.Location = new System.Drawing.Point(420, 456);
+            this.translatedTextBox.Location = new System.Drawing.Point(420, 430);
             this.translatedTextBox.Name = "translatedTextBox";
             this.translatedTextBox.ReadOnly = true;
             this.translatedTextBox.Size = new System.Drawing.Size(368, 111);
@@ -232,7 +234,7 @@ namespace EST_window
             // sourceTextBox
             // 
             this.sourceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sourceTextBox.Location = new System.Drawing.Point(12, 456);
+            this.sourceTextBox.Location = new System.Drawing.Point(12, 430);
             this.sourceTextBox.Name = "sourceTextBox";
             this.sourceTextBox.Size = new System.Drawing.Size(368, 111);
             this.sourceTextBox.TabIndex = 10;
@@ -242,7 +244,7 @@ namespace EST_window
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 441);
+            this.label1.Location = new System.Drawing.Point(12, 415);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 11;
@@ -252,7 +254,7 @@ namespace EST_window
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(416, 441);
+            this.label2.Location = new System.Drawing.Point(416, 415);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 12;
@@ -262,7 +264,7 @@ namespace EST_window
             // 
             this.retranslateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.retranslateButton.Location = new System.Drawing.Point(385, 501);
+            this.retranslateButton.Location = new System.Drawing.Point(385, 475);
             this.retranslateButton.Name = "retranslateButton";
             this.retranslateButton.Size = new System.Drawing.Size(28, 23);
             this.retranslateButton.TabIndex = 13;
@@ -270,11 +272,33 @@ namespace EST_window
             this.retranslateButton.UseVisualStyleBackColor = true;
             this.retranslateButton.Click += new System.EventHandler(this.retranslateButton_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(566, 548);
+            this.progressBar1.MarqueeAnimationSpeed = 0;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.progressBar1.Size = new System.Drawing.Size(222, 10);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(511, 547);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "動作状況";
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(800, 575);
+            this.ClientSize = new System.Drawing.Size(800, 564);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.retranslateButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -324,6 +348,8 @@ namespace EST_window
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button retranslateButton;
         public System.Windows.Forms.RichTextBox sourceTextBox;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

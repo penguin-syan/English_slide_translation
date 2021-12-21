@@ -63,8 +63,10 @@ namespace EST_window
         }
 
         public Rectangle rectangle;
+        public AreaLabel[] areaLabel = new AreaLabel[20];
         private void startTranslation_Click(object sender, EventArgs e)
         {
+            progressBar1.MarqueeAnimationSpeed = 25;
             rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
             Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -83,7 +85,8 @@ namespace EST_window
             }
             bitmap.Save(userDoc + "\\EST\\file.png");
             //この次の処理で時間がかかるので，何か考えると良いかもしれない．
-            GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png"); //デバッグ時に不要なリクエストを防ぐためにコメントアウトしてもよい
+            GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
+            progressBar1.MarqueeAnimationSpeed = 0;
         }
 
 
