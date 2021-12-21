@@ -180,7 +180,7 @@ namespace EST_window
             this.translateToolBox.Items.AddRange(new object[] {
             "DeepL 翻訳",
             "Google 翻訳"});
-            this.translateToolBox.Location = new System.Drawing.Point(31, 20);
+            this.translateToolBox.Location = new System.Drawing.Point(29, 19);
             this.translateToolBox.Margin = new System.Windows.Forms.Padding(2);
             this.translateToolBox.Name = "translateToolBox";
             this.translateToolBox.Size = new System.Drawing.Size(121, 20);
@@ -208,8 +208,7 @@ namespace EST_window
             // autoTranslateCheckbox
             // 
             this.autoTranslateCheckbox.AutoSize = true;
-            this.autoTranslateCheckbox.Enabled = false;
-            this.autoTranslateCheckbox.Location = new System.Drawing.Point(31, 117);
+            this.autoTranslateCheckbox.Location = new System.Drawing.Point(29, 116);
             this.autoTranslateCheckbox.Name = "autoTranslateCheckbox";
             this.autoTranslateCheckbox.Size = new System.Drawing.Size(181, 16);
             this.autoTranslateCheckbox.TabIndex = 3;
@@ -230,9 +229,9 @@ namespace EST_window
             this.sourceLangBox.Enabled = false;
             this.sourceLangBox.FormattingEnabled = true;
             this.sourceLangBox.Items.AddRange(new object[] {
-            "自動（Auto）",
-            "英語（EN）",
-            "日本語（JP）"});
+            "自動（推奨）",
+            "英語",
+            "日本語"});
             this.sourceLangBox.Location = new System.Drawing.Point(29, 69);
             this.sourceLangBox.Name = "sourceLangBox";
             this.sourceLangBox.Size = new System.Drawing.Size(121, 20);
@@ -243,8 +242,8 @@ namespace EST_window
             this.targetLangBox.Enabled = false;
             this.targetLangBox.FormattingEnabled = true;
             this.targetLangBox.Items.AddRange(new object[] {
-            "英語（EN）",
-            "日本語（JP）"});
+            "英語",
+            "日本語"});
             this.targetLangBox.Location = new System.Drawing.Point(241, 68);
             this.targetLangBox.Name = "targetLangBox";
             this.targetLangBox.Size = new System.Drawing.Size(121, 20);
