@@ -62,7 +62,10 @@ namespace EST_window
                 for(int i = 0; i < 20; i++)
                 {
                     if(Program.appForm.areaLabel[i] != null)
-                        Program.appForm.areaLabel[i].Dispose();
+                        Program.appForm.Invoke((Action)(() =>
+                        {
+                            Program.appForm.areaLabel[i].Dispose();
+                        }));
                 }
 
                 for(int i = 0; i < textBlocks.Length && i < 20; i++)

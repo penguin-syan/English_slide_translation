@@ -67,6 +67,7 @@ namespace EST_window
         public AreaLabel[] areaLabel = new AreaLabel[20];
         private async void startTranslation_Click(object sender, EventArgs e)
         {
+            progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 25;
             rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
             Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height);
@@ -86,14 +87,14 @@ namespace EST_window
             }
             bitmap.Save(userDoc + "\\EST\\file.png");
 
-            //この次の処理で時間がかかるので，何か考えると良いかもしれない．
+            //GCPにおけるOCR実行時にUIが停止するため，GCPを用いる一連の処理をマルチスレッド化
             Application.DoEvents();
             await Task.Run(() =>
             {
                 GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
             });
+            progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.MarqueeAnimationSpeed = 0;
-            
         }
 
 
