@@ -50,9 +50,9 @@ namespace EST_window
                         block.BoundingBox.Vertices[2].X,
                         block.BoundingBox.Vertices[2].Y);
 
+                    string str = "";
                     foreach (var paragraph in block.Paragraphs)
                     {
-                        string str = "";
                         foreach (var word in paragraph.Words)
                             str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
 
