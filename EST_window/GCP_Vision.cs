@@ -15,10 +15,15 @@ namespace EST_window
     {
         public static void detect_dtext(string imageFilepass)
         {
+            const int maxLabel = 20;
+
+            //GCP接続時のユーザ認証のため，Google Cloud API keyのファイルパスを設定.
             ImageAnnotatorClientBuilder ia_client_builder = new ImageAnnotatorClientBuilder
             {
                 CredentialsPath = ConfigurationManager.AppSettings["GC_key"]
             };
+
+            //Google Cloud API keyを用いて，GCP接続用のクライアントを作成．
             ImageAnnotatorClient ia_client = null;
             try
             {
@@ -29,6 +34,7 @@ namespace EST_window
                 MessageBox.Show("Google Cloudに接続するためのkeyファイルが設定されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             Image img = Image.FromFile(imageFilepass);
 
             TextAnnotation text = ia_client.DetectDocumentText(img);
@@ -59,16 +65,19 @@ namespace EST_window
                     textBlocks[i].setBlockText(str);
                 }
 
-                for(int i = 0; i < 20; i++)
+                //連続実行時に前回分のラベルを削除するため，すべてのラベルを解放．
+                for(int i = 0; i < maxLabel; i++)
                 {
                     if(Program.appForm.areaLabel[i] != null)
+                    {
                         Program.appForm.Invoke((Action)(() =>
                         {
                             Program.appForm.areaLabel[i].Dispose();
                         }));
+                    }
                 }
 
-                for(int i = 0; i < textBlocks.Length && i < 20; i++)
+                for(int i = 0; i < textBlocks.Length && i < maxLabel; i++)
                 {
                     TextBlocks tblock = textBlocks[i];
                     Program.appForm.areaLabel[i] = new AreaLabel(tblock);
