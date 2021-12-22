@@ -38,6 +38,7 @@ namespace EST_window
             return resultText.ToString();
 
         }
+
         protected static string setTranslateLangage(string setting)
         {
             switch (setting)

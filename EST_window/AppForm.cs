@@ -229,7 +229,6 @@ namespace EST_window
             if (ConfigurationManager.AppSettings["translateTool"].Equals("DeepL翻訳"))
             {
                 var resultText = await Translate.translateWithDeepL(sourceTextBox.Text);
-
                 translatedTextBox.Text = resultText.ToString();
             }
             else
