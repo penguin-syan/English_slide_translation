@@ -52,6 +52,17 @@ namespace EST_window
 
         private void save_button_Click(object sender, EventArgs e)
         {
+            //翻訳先と翻訳元を同一言語に設定している際に生じることのあるエラーを防止
+            if (this.targetLangBox.Text.Equals(this.sourceLangBox.Text))
+            {
+                MessageBox.Show(
+                    "翻訳元と翻訳先に同一言語を設定することはできません",
+                    "エラー",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings["GC_key"].Value = this.GCkey_textBox.Text;
             config.AppSettings.Settings["DeepL_key"].Value = this.deeplKey_textBox.Text;

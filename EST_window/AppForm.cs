@@ -221,6 +221,8 @@ namespace EST_window
 
         private async void retranslateButton_Click(object sender, EventArgs e)
         {
+            setProgressBar(true);
+            
             if (ConfigurationManager.AppSettings["translateTool"].Equals("DeepL翻訳"))
             {
                 var authKey = ConfigurationManager.AppSettings["DeepL_key"];
@@ -246,6 +248,8 @@ namespace EST_window
                 
                 translatedTextBox.Text = resultText.ToString();
             }
+
+            setProgressBar(false);
         }
 
         protected void setProgressBar(bool mode)
