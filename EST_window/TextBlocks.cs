@@ -40,13 +40,20 @@ namespace EST_window
 
     public class AreaLabel : Label
     {
+        static double widthScale, heightScale, scale;
+        static int widthDiff, heightDiff;
+
+        public static void setStaticVar()
+        {
+            widthScale = (double)Program.appForm.pictureBox1.Size.Width / Program.appForm.pictureBox1.Image.Width;
+            heightScale = (double)Program.appForm.pictureBox1.Size.Height / Program.appForm.pictureBox1.Image.Height;
+            scale = (widthScale < heightScale) ? widthScale : heightScale;
+            widthDiff = (Program.appForm.pictureBox1.Size.Width - (int)(Program.appForm.pictureBox1.Image.Width * scale)) / 2;
+            heightDiff = (Program.appForm.pictureBox1.Size.Height - (int)(Program.appForm.pictureBox1.Image.Height * scale)) / 2;
+        }
+
         public AreaLabel(TextBlocks textBlocks)
         {
-            double widthScale = (double)Program.appForm.pictureBox1.Size.Width / Program.appForm.pictureBox1.Image.Width;
-            double heightScale = (double)Program.appForm.pictureBox1.Size.Height / Program.appForm.pictureBox1.Image.Height;
-            double scale = (widthScale < heightScale) ? widthScale : heightScale;
-            Console.WriteLine("image scale: ({0}, {1}, {2})", widthScale, heightScale, scale);
-            Console.WriteLine("image size: ({0}, {1})", Program.appForm.pictureBox1.Image.Width, Program.appForm.pictureBox1.Image.Height);
 
             //AppForm内の要素にアクセスするため，AppFormと同一のスレッドで実行
             Program.appForm.Invoke((Action)(() =>
@@ -54,7 +61,7 @@ namespace EST_window
                 this.AutoSize = false;
                 this.Size = new System.Drawing.Size((int)(textBlocks.width * scale), (int)(textBlocks.height* scale));
                 this.Parent = Program.appForm.pictureBox1;
-                this.Location = new System.Drawing.Point((int)(textBlocks.x * scale), (int)(textBlocks.y * scale));
+                this.Location = new System.Drawing.Point((int)(textBlocks.x * scale) + widthDiff, (int)(textBlocks.y * scale) + heightDiff);
                 this.BackColor = System.Drawing.Color.Red;
                 Program.appForm.pictureBox1.Controls.Add(this);
                 this.Text = textBlocks.getBlockText();

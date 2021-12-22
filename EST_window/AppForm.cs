@@ -87,6 +87,8 @@ namespace EST_window
             }
             bitmap.Save(userDoc + "\\EST\\file.png");
 
+            AreaLabel.setStaticVar();
+
             //GCPにおけるOCR実行時にUIが停止するため，GCPを用いる一連の処理をマルチスレッド化
             Application.DoEvents();
             await Task.Run(() =>
