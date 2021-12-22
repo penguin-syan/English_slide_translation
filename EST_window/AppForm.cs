@@ -68,8 +68,7 @@ namespace EST_window
         public AreaLabel[] areaLabel = new AreaLabel[20];
         private async void startTranslation_Click(object sender, EventArgs e)
         {
-            progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.MarqueeAnimationSpeed = 25;
+            setProgressBar(true);
             rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
             Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -94,8 +93,7 @@ namespace EST_window
             {
                 GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
             });
-            progressBar1.Style = ProgressBarStyle.Continuous;
-            progressBar1.MarqueeAnimationSpeed = 0;
+            setProgressBar(false);
         }
 
 
@@ -223,24 +221,58 @@ namespace EST_window
 
         private async void retranslateButton_Click(object sender, EventArgs e)
         {
-            var authKey = ConfigurationManager.AppSettings["DeepL_key"];
-            Translator translator;
-
-            try
+            if (ConfigurationManager.AppSettings["translateTool"].Equals("DeepL翻訳"))
             {
-                translator = new Translator(authKey);
-            }
-            catch (System.ArgumentException)
-            {
-                MessageBox.Show("DeepL APIを使用するためのAPI keyが設定されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                var authKey = ConfigurationManager.AppSettings["DeepL_key"];
+                Translator translator;
 
-            var resultText = await translator.TranslateTextAsync(
-                sourceTextBox.Text,
-                LanguageCode.English,
-                LanguageCode.Japanese);
-            translatedTextBox.Text = resultText.ToString();
+                try
+                {
+                    translator = new Translator(authKey);
+                }
+                catch (System.ArgumentException)
+                {
+                    MessageBox.Show("DeepL APIを使用するためのAPI keyが設定されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string sourceLang = setTranslateLangage(ConfigurationManager.AppSettings["sourceLang"]);
+                string targetLang = setTranslateLangage(ConfigurationManager.AppSettings["targetLang"]);
+
+                var resultText = await translator.TranslateTextAsync(
+                    sourceTextBox.Text,
+                    sourceLang,
+                    targetLang);
+                
+                translatedTextBox.Text = resultText.ToString();
+            }
+        }
+
+        protected void setProgressBar(bool mode)
+        {
+            if (mode)
+            {
+                progressBar1.Style = ProgressBarStyle.Marquee;
+                progressBar1.MarqueeAnimationSpeed = 25;
+            }
+            else
+            {
+                progressBar1.Style = ProgressBarStyle.Continuous;
+                progressBar1.MarqueeAnimationSpeed = 0;
+            }
+        }
+
+        protected string setTranslateLangage(string setting)
+        {
+            switch (setting)
+            {
+                case "日本語":
+                    return LanguageCode.Japanese;
+                case "英語":
+                    return LanguageCode.English;
+                default:
+                    return null;
+            }
         }
     }
 }

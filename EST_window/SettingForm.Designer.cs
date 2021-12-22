@@ -208,6 +208,7 @@ namespace EST_window
             // autoTranslateCheckbox
             // 
             this.autoTranslateCheckbox.AutoSize = true;
+            this.autoTranslateCheckbox.Enabled = false;
             this.autoTranslateCheckbox.Location = new System.Drawing.Point(29, 116);
             this.autoTranslateCheckbox.Name = "autoTranslateCheckbox";
             this.autoTranslateCheckbox.Size = new System.Drawing.Size(181, 16);
@@ -226,7 +227,6 @@ namespace EST_window
             // 
             // sourceLangBox
             // 
-            this.sourceLangBox.Enabled = false;
             this.sourceLangBox.FormattingEnabled = true;
             this.sourceLangBox.Items.AddRange(new object[] {
             "自動（推奨）",
@@ -239,7 +239,6 @@ namespace EST_window
             // 
             // targetLangBox
             // 
-            this.targetLangBox.Enabled = false;
             this.targetLangBox.FormattingEnabled = true;
             this.targetLangBox.Items.AddRange(new object[] {
             "英語",
