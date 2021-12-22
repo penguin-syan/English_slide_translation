@@ -208,7 +208,6 @@ namespace EST_window
             // autoTranslateCheckbox
             // 
             this.autoTranslateCheckbox.AutoSize = true;
-            this.autoTranslateCheckbox.Enabled = false;
             this.autoTranslateCheckbox.Location = new System.Drawing.Point(29, 118);
             this.autoTranslateCheckbox.Name = "autoTranslateCheckbox";
             this.autoTranslateCheckbox.Size = new System.Drawing.Size(181, 16);

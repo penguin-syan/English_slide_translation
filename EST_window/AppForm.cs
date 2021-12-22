@@ -228,27 +228,8 @@ namespace EST_window
 
             if (ConfigurationManager.AppSettings["translateTool"].Equals("DeepL翻訳"))
             {
-                var authKey = ConfigurationManager.AppSettings["DeepL_key"];
-                Translator translator;
+                var resultText = await Translate.translateWithDeepL(sourceTextBox.Text);
 
-                try
-                {
-                    translator = new Translator(authKey);
-                }
-                catch (System.ArgumentException)
-                {
-                    MessageBox.Show("DeepL APIを使用するためのAPI keyが設定されていません", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                string sourceLang = setTranslateLangage(ConfigurationManager.AppSettings["sourceLang"]);
-                string targetLang = setTranslateLangage(ConfigurationManager.AppSettings["targetLang"]);
-
-                var resultText = await translator.TranslateTextAsync(
-                    sourceTextBox.Text,
-                    sourceLang,
-                    targetLang);
-                
                 translatedTextBox.Text = resultText.ToString();
             }
             else
@@ -271,20 +252,6 @@ namespace EST_window
             {
                 progressBar1.Style = ProgressBarStyle.Continuous;
                 progressBar1.MarqueeAnimationSpeed = 0;
-            }
-        }
-
-
-        protected string setTranslateLangage(string setting)
-        {
-            switch (setting)
-            {
-                case "日本語":
-                    return LanguageCode.Japanese;
-                case "英語":
-                    return LanguageCode.English;
-                default:
-                    return null;
             }
         }
     }
