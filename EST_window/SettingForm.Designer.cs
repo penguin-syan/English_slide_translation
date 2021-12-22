@@ -138,7 +138,6 @@ namespace EST_window
             this.tabControl1.Controls.Add(this.deepl);
             this.tabControl1.Controls.Add(this.API);
             this.tabControl1.Controls.Add(this.network);
-            this.tabControl1.Enabled = false;
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;

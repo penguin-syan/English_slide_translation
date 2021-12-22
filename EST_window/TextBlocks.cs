@@ -19,8 +19,6 @@ namespace EST_window
             this.y = y0;
             this.width = x1 - x0;
             this.height = y1 - y0;
-
-            Console.WriteLine($"{x0}, {y0}, {x1}, {y1}");
         }
 
         public void setBlockText(string text)
@@ -44,15 +42,19 @@ namespace EST_window
     {
         public AreaLabel(TextBlocks textBlocks)
         {
-            double widthScale = (double)Program.appForm.pictureBox1.Size.Width / Program.appForm.rectangle.Width;
-            double heightScale = (double)Program.appForm.pictureBox1.Size.Height / Program.appForm.rectangle.Height;
+            double widthScale = (double)Program.appForm.pictureBox1.Size.Width / Program.appForm.pictureBox1.Image.Width;
+            double heightScale = (double)Program.appForm.pictureBox1.Size.Height / Program.appForm.pictureBox1.Image.Height;
+            double scale = (widthScale < heightScale) ? widthScale : heightScale;
+            Console.WriteLine("image scale: ({0}, {1}, {2})", widthScale, heightScale, scale);
+            Console.WriteLine("image size: ({0}, {1})", Program.appForm.pictureBox1.Image.Width, Program.appForm.pictureBox1.Image.Height);
 
+            //AppForm内の要素にアクセスするため，AppFormと同一のスレッドで実行
             Program.appForm.Invoke((Action)(() =>
             {
                 this.AutoSize = false;
-                this.Size = new System.Drawing.Size(textBlocks.width, textBlocks.height);
+                this.Size = new System.Drawing.Size((int)(textBlocks.width * scale), (int)(textBlocks.height* scale));
                 this.Parent = Program.appForm.pictureBox1;
-                this.Location = new System.Drawing.Point((int)(textBlocks.x * widthScale), (int)(textBlocks.y * heightScale));
+                this.Location = new System.Drawing.Point((int)(textBlocks.x * scale), (int)(textBlocks.y * scale));
                 this.BackColor = System.Drawing.Color.Red;
                 Program.appForm.pictureBox1.Controls.Add(this);
                 this.Text = textBlocks.getBlockText();
