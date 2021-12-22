@@ -68,7 +68,7 @@ namespace EST_window
         public AreaLabel[] areaLabel = new AreaLabel[20];
         private async void startTranslation_Click(object sender, EventArgs e)
         {
-            setProgressBar(true);
+            setProgressBar(true, "動作状況（文字列抽出中）");
             rectangle = new Rectangle(capArea.xs, capArea.ys, capArea.width, capArea.height);
             Bitmap bitmap = new Bitmap(rectangle.Width, rectangle.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -93,7 +93,7 @@ namespace EST_window
             {
                 GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
             });
-            setProgressBar(false);
+            setProgressBar(false, "動作状況");
         }
 
 
@@ -219,10 +219,11 @@ namespace EST_window
             }
         }
 
+
         private async void retranslateButton_Click(object sender, EventArgs e)
         {
-            setProgressBar(true);
-            
+            setProgressBar(true, "動作状況（翻訳中）");
+
             if (ConfigurationManager.AppSettings["translateTool"].Equals("DeepL翻訳"))
             {
                 var authKey = ConfigurationManager.AppSettings["DeepL_key"];
@@ -248,12 +249,18 @@ namespace EST_window
                 
                 translatedTextBox.Text = resultText.ToString();
             }
+            else
+            {
+                //TODO: Google翻訳を用いた翻訳機能を追加する
+            }
 
-            setProgressBar(false);
+            setProgressBar(false, "動作状況");
         }
 
-        protected void setProgressBar(bool mode)
+
+        protected void setProgressBar(bool mode, string status)
         {
+            processingStatusLabel.Text = status;
             if (mode)
             {
                 progressBar1.Style = ProgressBarStyle.Marquee;
@@ -265,6 +272,7 @@ namespace EST_window
                 progressBar1.MarqueeAnimationSpeed = 0;
             }
         }
+
 
         protected string setTranslateLangage(string setting)
         {

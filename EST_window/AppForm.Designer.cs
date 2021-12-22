@@ -55,7 +55,7 @@ namespace EST_window
             this.label2 = new System.Windows.Forms.Label();
             this.retranslateButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label3 = new System.Windows.Forms.Label();
+            this.processingStatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -283,21 +283,22 @@ namespace EST_window
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 14;
             // 
-            // label3
+            // processingStatusLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(511, 547);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "動作状況";
+            this.processingStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.processingStatusLabel.AutoSize = true;
+            this.processingStatusLabel.Location = new System.Drawing.Point(511, 547);
+            this.processingStatusLabel.Name = "processingStatusLabel";
+            this.processingStatusLabel.Size = new System.Drawing.Size(53, 12);
+            this.processingStatusLabel.TabIndex = 15;
+            this.processingStatusLabel.Text = "動作状況";
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 564);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.processingStatusLabel);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.retranslateButton);
             this.Controls.Add(this.label2);
@@ -348,7 +349,7 @@ namespace EST_window
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button retranslateButton;
         public System.Windows.Forms.RichTextBox sourceTextBox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label processingStatusLabel;
         public System.Windows.Forms.ProgressBar progressBar1;
     }
 }
