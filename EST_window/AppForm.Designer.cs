@@ -53,9 +53,11 @@ namespace EST_window
             this.sourceTextBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.retranslateButton = new System.Windows.Forms.Button();
+            this.translateButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.processingStatusLabel = new System.Windows.Forms.Label();
+            this.autoTranslateWhenClickLabel = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -260,17 +262,17 @@ namespace EST_window
             this.label2.TabIndex = 12;
             this.label2.Text = "翻訳文";
             // 
-            // retranslateButton
+            // translateButton
             // 
-            this.retranslateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.translateButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.retranslateButton.Location = new System.Drawing.Point(385, 475);
-            this.retranslateButton.Name = "retranslateButton";
-            this.retranslateButton.Size = new System.Drawing.Size(28, 23);
-            this.retranslateButton.TabIndex = 13;
-            this.retranslateButton.Text = "→";
-            this.retranslateButton.UseVisualStyleBackColor = true;
-            this.retranslateButton.Click += new System.EventHandler(this.retranslateButton_Click);
+            this.translateButton.Location = new System.Drawing.Point(385, 475);
+            this.translateButton.Name = "translateButton";
+            this.translateButton.Size = new System.Drawing.Size(28, 23);
+            this.translateButton.TabIndex = 13;
+            this.translateButton.Text = "→";
+            this.translateButton.UseVisualStyleBackColor = true;
+            this.translateButton.Click += new System.EventHandler(this.retranslateButton_Click);
             // 
             // progressBar1
             // 
@@ -293,14 +295,25 @@ namespace EST_window
             this.processingStatusLabel.TabIndex = 15;
             this.processingStatusLabel.Text = "動作状況";
             // 
+            // autoTranslateWhenClickLabel
+            // 
+            this.autoTranslateWhenClickLabel.AutoSize = true;
+            this.autoTranslateWhenClickLabel.Location = new System.Drawing.Point(234, 543);
+            this.autoTranslateWhenClickLabel.Name = "autoTranslateWhenClickLabel";
+            this.autoTranslateWhenClickLabel.Size = new System.Drawing.Size(146, 16);
+            this.autoTranslateWhenClickLabel.TabIndex = 16;
+            this.autoTranslateWhenClickLabel.Text = "ラベル選択時の自動翻訳";
+            this.autoTranslateWhenClickLabel.UseVisualStyleBackColor = true;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 564);
+            this.Controls.Add(this.autoTranslateWhenClickLabel);
             this.Controls.Add(this.processingStatusLabel);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.retranslateButton);
+            this.Controls.Add(this.translateButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sourceTextBox);
@@ -347,10 +360,12 @@ namespace EST_window
         public System.Windows.Forms.RichTextBox translatedTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button retranslateButton;
         public System.Windows.Forms.RichTextBox sourceTextBox;
         private System.Windows.Forms.Label processingStatusLabel;
         public System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        public System.Windows.Forms.CheckBox autoTranslateWhenClickLabel;
+        public System.Windows.Forms.Button translateButton;
     }
 }
 

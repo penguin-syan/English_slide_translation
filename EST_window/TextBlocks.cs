@@ -63,6 +63,8 @@ namespace EST_window
         {
             base.OnClick(e);
             Program.appForm.sourceTextBox.Text = this.Text;
+            if (Program.appForm.autoTranslateWhenClickLabel.Checked)
+                Program.appForm.translateButton.PerformClick();
         }
     }
 }
