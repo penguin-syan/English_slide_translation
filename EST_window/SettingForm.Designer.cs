@@ -166,7 +166,7 @@ namespace EST_window
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(187, 74);
+            this.label11.Location = new System.Drawing.Point(187, 76);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(17, 12);
@@ -180,7 +180,7 @@ namespace EST_window
             this.translateToolBox.Items.AddRange(new object[] {
             "DeepL 翻訳",
             "Google 翻訳"});
-            this.translateToolBox.Location = new System.Drawing.Point(29, 19);
+            this.translateToolBox.Location = new System.Drawing.Point(29, 21);
             this.translateToolBox.Margin = new System.Windows.Forms.Padding(2);
             this.translateToolBox.Name = "translateToolBox";
             this.translateToolBox.Size = new System.Drawing.Size(121, 20);
@@ -189,7 +189,7 @@ namespace EST_window
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 5);
+            this.label10.Location = new System.Drawing.Point(10, 7);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
@@ -199,7 +199,7 @@ namespace EST_window
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 53);
+            this.label9.Location = new System.Drawing.Point(10, 55);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 4;
@@ -209,7 +209,7 @@ namespace EST_window
             // 
             this.autoTranslateCheckbox.AutoSize = true;
             this.autoTranslateCheckbox.Enabled = false;
-            this.autoTranslateCheckbox.Location = new System.Drawing.Point(29, 116);
+            this.autoTranslateCheckbox.Location = new System.Drawing.Point(29, 118);
             this.autoTranslateCheckbox.Name = "autoTranslateCheckbox";
             this.autoTranslateCheckbox.Size = new System.Drawing.Size(181, 16);
             this.autoTranslateCheckbox.TabIndex = 3;
@@ -219,7 +219,7 @@ namespace EST_window
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 101);
+            this.label8.Location = new System.Drawing.Point(12, 103);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 2;
@@ -232,7 +232,7 @@ namespace EST_window
             "自動（推奨）",
             "英語",
             "日本語"});
-            this.sourceLangBox.Location = new System.Drawing.Point(29, 69);
+            this.sourceLangBox.Location = new System.Drawing.Point(29, 71);
             this.sourceLangBox.Name = "sourceLangBox";
             this.sourceLangBox.Size = new System.Drawing.Size(121, 20);
             this.sourceLangBox.TabIndex = 1;
@@ -243,7 +243,7 @@ namespace EST_window
             this.targetLangBox.Items.AddRange(new object[] {
             "英語",
             "日本語"});
-            this.targetLangBox.Location = new System.Drawing.Point(241, 68);
+            this.targetLangBox.Location = new System.Drawing.Point(241, 70);
             this.targetLangBox.Name = "targetLangBox";
             this.targetLangBox.Size = new System.Drawing.Size(121, 20);
             this.targetLangBox.TabIndex = 1;
@@ -251,7 +251,7 @@ namespace EST_window
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(221, 53);
+            this.label6.Location = new System.Drawing.Point(221, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 0;
