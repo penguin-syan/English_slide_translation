@@ -52,9 +52,9 @@ namespace EST_window
             heightDiff = (Program.appForm.pictureBox1.Size.Height - (int)(Program.appForm.pictureBox1.Image.Height * scale)) / 2;
         }
 
+
         public AreaLabel(TextBlocks textBlocks)
         {
-
             //AppForm内の要素にアクセスするため，AppFormと同一のスレッドで実行
             Program.appForm.Invoke((Action)(() =>
             {
@@ -67,6 +67,7 @@ namespace EST_window
                 this.Text = textBlocks.getBlockText();
             }));
         }
+
 
         protected override void OnClick(EventArgs e)
         {

@@ -112,7 +112,7 @@ namespace EST_window
                 string usage_str = usage.Character.ToString().Split(' ')[0];
                 Console.WriteLine(usage_str);
                 deepl_usageBar.Value = Int32.Parse(usage_str);
-                deepl_usageLabel.Text = String.Format("{0:#,0}/500,000", usage_str);
+                deepl_usageLabel.Text = String.Format("{0:#,0}/500,000", deepl_usageBar.Value);
             }
             else
             {

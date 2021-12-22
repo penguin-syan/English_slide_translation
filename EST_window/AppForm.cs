@@ -102,7 +102,6 @@ namespace EST_window
         Bitmap canvas = new Bitmap(width, height);
         Graphics graphic;
         Pen p = new Pen(Color.Yellow, 3);
-
         private void setAreaTimer_Tick(object sender, EventArgs e)
         {
             graphic = Graphics.FromImage(canvas);
