@@ -13,7 +13,7 @@ namespace EST_window
 {
     class GCP_Vision
     {
-        public static async Task detect_dtext(string imageFilepass)
+        public static void detect_dtext(string imageFilepass)
         {
             const int maxLabel = 20; //TODO: maxLabel数の変更機能を設定画面に追加する．
 
@@ -67,7 +67,7 @@ namespace EST_window
 
                     if (ConfigurationManager.AppSettings["autoTranslate"].Equals("true"))
                     {
-                        textBlocks[i].setTargetText(await Translate.translateWithDeepL(str));
+                        textBlocks[i].setTargetText(Translate.translateWithDeepL(str).Result);
                     }
 
                     textBlocks[i].setBlockText(textBlocks[i].outputText());
@@ -98,6 +98,7 @@ namespace EST_window
             {
                 MessageBox.Show("文字列が検出されませんでした","エラー" ,MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            return;
         }
     }
 }

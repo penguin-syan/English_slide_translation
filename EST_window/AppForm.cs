@@ -91,12 +91,11 @@ namespace EST_window
 
             //GCPにおけるOCR実行時にUIが停止するため，GCPを用いる一連の処理をマルチスレッド化
             Application.DoEvents();
+            await Task.Run(() =>
+            {
+                GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
+            });
 
-            await GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
-            //await Task.Run(() =>
-            //{
-            //    GCP_Vision.detect_dtext(userDoc + "\\EST\\file.png");
-            //});
             setProgressBar(false);
         }
 
@@ -247,11 +246,17 @@ namespace EST_window
             {
                 progressBar1.Style = ProgressBarStyle.Marquee;
                 progressBar1.MarqueeAnimationSpeed = 25;
+                setAreaButton.Enabled = false;
+                startTranslation.Enabled = false;
+                translateButton.Enabled = false;
             }
             else
             {
                 progressBar1.Style = ProgressBarStyle.Continuous;
                 progressBar1.MarqueeAnimationSpeed = 0;
+                setAreaButton.Enabled = true;
+                startTranslation.Enabled = true;
+                translateButton.Enabled = true;
             }
         }
     }
