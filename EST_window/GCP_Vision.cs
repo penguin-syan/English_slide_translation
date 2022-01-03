@@ -13,7 +13,7 @@ namespace EST_window
 {
     class GCP_Vision
     {
-        public static async void detect_dtext(string imageFilepass)
+        public static async Task detect_dtext(string imageFilepass)
         {
             const int maxLabel = 20; //TODO: maxLabel数の変更機能を設定画面に追加する．
 
