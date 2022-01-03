@@ -13,9 +13,9 @@ namespace EST_window
 {
     class GCP_Vision
     {
-        public static void detect_dtext(string imageFilepass)
+        public static async void detect_dtext(string imageFilepass)
         {
-            const int maxLabel = 20;
+            const int maxLabel = 20; //TODO: maxLabel数の変更機能を設定画面に追加する．
 
             //GCP接続時のユーザ認証のため，Google Cloud API keyのファイルパスを設定.
             ImageAnnotatorClientBuilder ia_client_builder = new ImageAnnotatorClientBuilder
@@ -62,7 +62,15 @@ namespace EST_window
                         foreach (var word in paragraph.Words)
                             str += string.Join("", word.Symbols.Select(s => s.Text)) + " ";
                     }
-                    textBlocks[i].setBlockText(str);
+
+                    textBlocks[i].setSourceText(str);
+
+                    if (ConfigurationManager.AppSettings["autoTranslate"].Equals("true"))
+                    {
+                        textBlocks[i].setTargetText(await Translate.translateWithDeepL(str));
+                    }
+
+                    textBlocks[i].setBlockText(textBlocks[i].outputText());
                 }
 
                 //連続実行時に前回分のラベルを削除するため，すべてのラベルを解放．

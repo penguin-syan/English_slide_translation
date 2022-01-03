@@ -12,6 +12,7 @@ namespace EST_window
     {
         public int x, y, width, height;
         string text;
+        string sourceText, targetText;
 
         public void setBlockLocation(int x0, int y0, int x1, int y1)
         {
@@ -34,6 +35,24 @@ namespace EST_window
         public string getBlockLocation()
         {
             return $"({this.x}, {this.y}, {this.width}, {this.height})";
+        }
+
+        public void setSourceText(string text)
+        {
+            this.sourceText = text;
+        }
+
+        public void setTargetText(string text)
+        {
+            this.targetText = text;
+        }
+
+        public string outputText()
+        {
+            if (targetText == null)
+                return sourceText;
+            else
+                return targetText;
         }
     }
 
