@@ -22,6 +22,11 @@ namespace EST_window
             this.height = y1 - y0;
         }
 
+        public string getBlockLocation()
+        {
+            return $"({this.x}, {this.y}, {this.width}, {this.height})";
+        }
+
         public void setBlockText(string text)
         {
             this.text = text;
@@ -32,19 +37,24 @@ namespace EST_window
             return this.text;
         }
 
-        public string getBlockLocation()
-        {
-            return $"({this.x}, {this.y}, {this.width}, {this.height})";
-        }
-
         public void setSourceText(string text)
         {
             this.sourceText = text;
         }
 
+        public string getSourceText()
+        {
+            return this.sourceText;
+        }
+
         public void setTargetText(string text)
         {
             this.targetText = text;
+        }
+
+        public string getTargetText()
+        {
+            return this.targetText;
         }
 
         public string outputText()
@@ -59,8 +69,10 @@ namespace EST_window
 
     public class AreaLabel : Label
     {
-        static double widthScale, heightScale, scale;
         static int widthDiff, heightDiff;
+        static double widthScale, heightScale, scale;
+        int indexNum;
+        string sourceTest, targetText;
 
         public static void setStaticVar()
         {
@@ -72,8 +84,11 @@ namespace EST_window
         }
 
 
-        public AreaLabel(TextBlocks textBlocks)
+        public AreaLabel(TextBlocks textBlocks, int indexNum)
         {
+            this.indexNum = indexNum;
+            this.sourceTest = textBlocks.getSourceText();
+            this.targetText = textBlocks.getTargetText();
             //AppForm内の要素にアクセスするため，AppFormと同一のスレッドで実行
             Program.appForm.Invoke((Action)(() =>
             {
@@ -91,8 +106,10 @@ namespace EST_window
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            Program.appForm.sourceTextBox.Text = this.Text;
-            if (Program.appForm.autoTranslateWhenClickLabel.Checked)
+            Program.appForm.sourceTextBox.Text = this.sourceTest;
+            if(targetText != null)
+                Program.appForm.translatedTextBox.Text = this.targetText;
+            if (Program.appForm.autoTranslateWhenClickLabel.Checked && this.targetText == null)
                 Program.appForm.translateButton.PerformClick();
         }
     }

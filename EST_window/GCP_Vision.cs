@@ -88,7 +88,7 @@ namespace EST_window
                 for(int i = 0; i < textBlocks.Length && i < maxLabel; i++)
                 {
                     TextBlocks tblock = textBlocks[i];
-                    Program.appForm.areaLabel[i] = new AreaLabel(tblock);
+                    Program.appForm.areaLabel[i] = new AreaLabel(tblock, i);
 
                     Console.Write(tblock.getBlockLocation() + " ");
                     Console.WriteLine(tblock.getBlockText());
