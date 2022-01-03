@@ -63,6 +63,17 @@ namespace EST_window
                 return;
             }
 
+            if (this.autoTranslateCheckbox.Checked)
+            {
+                DialogResult dResult = MessageBox.Show(
+                    "自動翻訳を有効にすると，キャプチャ時にすべてのテキストが翻訳されます．これにより，翻訳APIの消費が大幅に増加します．\n以上を理解したうえで，有効にしますか？",
+                    "警告",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+                if (dResult == DialogResult.No)
+                    return;
+            }
+
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings["GC_key"].Value = this.GCkey_textBox.Text;
             config.AppSettings.Settings["DeepL_key"].Value = this.deeplKey_textBox.Text;
