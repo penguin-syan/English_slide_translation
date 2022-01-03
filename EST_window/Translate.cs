@@ -46,7 +46,7 @@ namespace EST_window
                 case "日本語":
                     return LanguageCode.Japanese;
                 case "英語":
-                    return LanguageCode.English;
+                    return LanguageCode.EnglishAmerican;
                 default:
                     return null;
             }
