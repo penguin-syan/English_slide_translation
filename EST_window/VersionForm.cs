@@ -28,7 +28,9 @@ namespace EST_window
 
         private void vframe_license_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/penguin-syan/English_slide_translation/blob/main/LICENSE");
+            LicenseForm licenseForm = new LicenseForm();
+            this.Close();
+            licenseForm.Show();
         }
     }
 }
