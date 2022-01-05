@@ -1,4 +1,7 @@
 # [EST] English Slide Translation
+![License](https://img.shields.io/github/license/penguin-syan/English_slide_translation)
+![Version](https://img.shields.io/github/v/release/penguin-syan/English_slide_translation)
+
 Zoomなどを用いたオンラインの国際会議において，画面共有で表示されているスライドのキャプション・翻訳を行うソフト．  
 一部の処理に[Google Cloud Vision](https://cloud.google.com/vision/)と[DeepL](https://www.deepl.com/)を用いています．
 
